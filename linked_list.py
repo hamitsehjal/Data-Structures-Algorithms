@@ -64,6 +64,36 @@ class LinkedList:
             else:
                 current=current.next_node
         return None
+
+    # Insert operation
+    def insert(self,data,index):
+
+        """
+        Insert operation inserts a new node at index position
+        Inserting at a specific index is a constant time operation O(1), however
+        finding the right index where we want to insert the new node take linear time O(n).
+
+        Therefore, overall Insert operation is a linear time operatin O(n).
+        
+        """
+        if index==0:
+            self.add(data)
+
+        if index > 0:
+            new_node=Node(data)
+            current=self.head
+            position=index
+
+            while position>1:
+                position-=1
+                current=current.next_node
+
+            prev_node=current
+            next_node=current.next_node
+
+            prev_node.next_node=new_node
+            new_node.next_node=next_node
+
     def __repr__(self):
         
         nodes=[]
