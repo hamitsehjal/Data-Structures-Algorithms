@@ -74,7 +74,7 @@ class LinkedList:
         finding the right index where we want to insert the new node take linear time O(n).
 
         Therefore, overall Insert operation is a linear time operatin O(n).
-        
+
         """
         if index==0:
             self.add(data)
@@ -93,6 +93,31 @@ class LinkedList:
 
             prev_node.next_node=new_node
             new_node.next_node=next_node
+
+    #Implementing remove operation
+    def remove(self,key):
+        """
+        Removes Node containing data that matches the key
+        Returns the Node or None if doesn't exist!!
+        
+        Takes linear time O(n)
+        """
+        Found=False
+        previous=None
+        current=self.head
+
+        while current and not Found:
+            if(current.data == key and current is self.head):
+                Found=True
+                self.head=current.next_node
+            elif current.data==key:
+                Found=True
+                previous.next_node=current.next_node
+            else:
+                previous=current
+                current=current.next_node
+
+        return current
 
     def __repr__(self):
         
