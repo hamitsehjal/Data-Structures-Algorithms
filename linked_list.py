@@ -95,21 +95,24 @@ class LinkedList:
             new_node.next_node=next_node
 
     
-    def new_insert(self,data,index):
+    """
+    This version of insert operation doesn't work!!!!
+    """
+    # def new_insert(self,data,index):
 
-        position=0
-        current=self.head
-        new_node=Node(data)
+    #     position=0
+    #     current=self.head
+    #     new_node=Node(data)
 
-        while position<index:
-            position+=1
-            current=current.next_node
+    #     while position<index:
+    #         position+=1
+    #         current=current.next_node
 
-        prev_node=current
-        next_node=current.next_node
-        
-        prev_node.next_node=new_node
-        new_node.next_node=next_node
+    #     prev_node=current
+    #     next_node=current.next_node
+
+    #     prev_node.next_node=new_node
+    #     new_node.next_node=next_node
 
         
 
@@ -137,6 +140,35 @@ class LinkedList:
                 current=current.next_node
 
         return current
+
+    def remove_by_index(self,index):
+        """
+        Removes node containing data whose index matches the index specificed
+        Returns the removed node or None if doesn't exist!!
+
+        Takes linear Time O(n)
+        """
+        current=self.head
+        previous=None
+        if index ==0:
+            self.head=current.next_node
+        
+        if index > 0:
+            position=index
+
+            while position>1:
+                position-=1
+                previous=current
+                current=current.next_node
+            
+            next_node=current.next_node
+            previous.next_node=next_node
+
+            return current
+                
+
+            
+
 
     def __repr__(self):
         
