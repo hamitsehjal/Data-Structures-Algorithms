@@ -94,6 +94,25 @@ class LinkedList:
             prev_node.next_node=new_node
             new_node.next_node=next_node
 
+    
+    def new_insert(self,data,index):
+
+        position=0
+        current=self.head
+        new_node=Node(data)
+
+        while position<index:
+            position+=1
+            current=current.next_node
+
+        prev_node=current
+        next_node=current.next_node
+        
+        prev_node.next_node=new_node
+        new_node.next_node=next_node
+
+        
+
     #Implementing remove operation
     def remove(self,key):
         """
