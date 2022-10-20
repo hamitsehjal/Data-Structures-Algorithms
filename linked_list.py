@@ -115,7 +115,20 @@ class LinkedList:
     #     new_node.next_node=next_node
 
         
+    def node_at_index(self,index):
+        if index==0:
+            return self.head
 
+        if index > 0:
+            current=self.head
+            position=0
+
+            while position<index:
+                position+=1
+                current=current.next_node
+
+            return current
+            
     #Implementing remove operation
     def remove(self,key):
         """
@@ -141,30 +154,30 @@ class LinkedList:
 
         return current
 
-    def remove_by_index(self,index):
-        """
-        Removes node containing data whose index matches the index specificed
-        Returns the removed node or None if doesn't exist!!
+    # def remove_by_index(self,index):
+    #     """
+    #     Removes node containing data whose index matches the index specificed
+    #     Returns the removed node or None if doesn't exist!!
 
-        Takes linear Time O(n)
-        """
-        current=self.head
-        previous=None
-        if index ==0:
-            self.head=current.next_node
+    #     Takes linear Time O(n)
+    #     """
+    #     current=self.head
+    #     previous=None
+    #     if index ==0:
+    #         self.head=current.next_node
         
-        if index > 0:
-            position=index
+    #     if index > 0:
+    #         position=index
 
-            while position>1:
-                position-=1
-                previous=current
-                current=current.next_node
+    #         while position>1:
+    #             position-=1
+    #             previous=current
+    #             current=current.next_node
             
-            next_node=current.next_node
-            previous.next_node=next_node
+    #         next_node=current.next_node
+    #         previous.next_node=next_node
 
-            return current
+    #         return current
                 
 
             
