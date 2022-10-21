@@ -28,6 +28,49 @@ def split(linked_list):
         return left_half, right_half
 
 
+def merge(left, right):
+    merged = LinkedList()
+    """
+        It sorts and combines the left and right linked list and returns the new combined version
+    """
+    # Assign a fake head to merged (empty linked list)
+    merged.add(0)
+
+    current = merged.head
+    left_head = left.head
+    right_head = right.head
+
+    while left_head or right_head:
+        if left_head is None:
+            # if left_head is None, it means we are past the tail of left linked list
+
+            current.next_node = right_head
+            right_head = right_head.next_node
+
+        elif right_head is None:
+            # if right_head is None, it means we are past the tail of right linked list
+            current.next_node = left_head
+            left_head = left_head.next_node
+
+        else:
+            left_data = left_head.data
+            right_data = right_head.data
+
+            if left_data < right_data:
+                current.next_node = left_head
+                left_head = left_head.next_node
+            else:
+                current.next_node = right_head
+                right_head = right_head.next_node
+
+        current = current.next_node
+
+    head = merged.head.next_node
+    merged.head = head
+
+    return merged
+
+
 def merge_sort(linked_list):
     """
     RETURNS a linked_list sorted in ascending order
