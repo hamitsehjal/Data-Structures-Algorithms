@@ -112,21 +112,21 @@ class LinkedList:
     #     prev_node.next_node=new_node
     #     new_node.next_node=next_node
 
-    def node_at_index(self,index):
+    def node_at_index(self, index):
         """
             Returns the node at the index specified
         """
 
-        if index==0:
+        if index == 0:
             return self.head
-        
+
         if index > 0:
-            current=self.head
-            position=0
+            current = self.head
+            position = 0
 
             while position < index:
-                current=current.next_node
-                position+=1
+                current = current.next_node
+                position += 1
 
             return current
 
