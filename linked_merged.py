@@ -1,93 +1,111 @@
-from heapq import merge
 from linked_list import LinkedList
 
+def merge_sort(linked_list):
+        """
+        Sorts a linked list in ascending order
+        - Recursively divide the linked list into sublist containing single node
+        - Repeately merge the sublists to produce sorted sublists until one remains
+
+        - returns a sorted linked list
+        """
+
+        if linked_list.size() == 1:
+            return linked_list
+        elif linked_list.head is None:
+            return linked_list
+
+        left_half, right_half = split(linked_list)
+        left = merge_sort(left_half)
+        right = merge_sort(right_half)
+
+        return merge(left, right)
 
 def split(linked_list):
-    """
-    Takes in a linked_list and divides it up into two sublists by their mid points
-    """
-
-    if linked_list == None or linked_list.head is None:
-        left_half = linked_list
-        right_half = None
-
-        return left_half, right_half
-
-    else:
-        size = linked_list.size()
-        mid_point = size//2
-
-        node_at_mid = linked_list.node_at_index(mid_point-1)
-        left_half = linked_list
-        right_half = LinkedList()
-        right_half.head = node_at_mid.next_node
-
-        # severing the connection at the midpoint
-        node_at_mid.next_node = None
-
-        return left_half, right_half
-
-
-def merge(left, right):
-    merged = LinkedList()
-    """
-        It sorts and combines the left and right linked list and returns the new combined version
-    """
-    # Assign a fake head to merged (empty linked list)
-    merged.add(0)
-
-    current = merged.head
-    left_head = left.head
-    right_head = right.head
-
-    while left_head or right_head:
-        if left_head is None:
-            # if left_head is None, it means we are past the tail of left linked list
-
-            current.next_node = right_head
-            right_head = right_head.next_node
-
-        elif right_head is None:
-            # if right_head is None, it means we are past the tail of right linked list
-            current.next_node = left_head
-            left_head = left_head.next_node
-
+        """
+        Divide the unsorted list at midpoint into sublists
+        """
+        
+        if linked_list == None or linked_list.head==None:
+            left_half=linked_list
+            right_half=None
+        
+            return left_half,right_half
+        
         else:
-            left_data = left_head.data
-            right_data = right_head.data
-
-            if left_data < right_data:
-                current.next_node = left_head
-                left_head = left_head.next_node
+            size=linked_list.size()
+            mid=size//2
+            
+            mid_node=linked_list.node_at_index(mid-1) # subtracting 1 since we are using size here
+            left_half=linked_list
+            right_half=LinkedList()
+            
+            right_half.head=mid_node.next_node
+            # severing the connection at the mid point
+            mid_node.next_node=None
+            
+            
+            return left_half,right_half
+            
+    
+def merge(left,right):
+        """
+        Merges two linked lists, sorting by data in nodes
+        Returns a new, merged list
+        """
+        # Create a new linked list that contains nodes from
+        # merging left and right
+        merged=LinkedList()
+        
+        # add a fake head that is discarded later
+        merged.add(0)
+        
+        # set current to the head of the linked list(i.e merged)
+        current=merged.head
+        
+        # Obtain head nodes on left and right linked list
+        left_head=left.head
+        right_head=right.head
+        
+        # Iterate over left and right until we reach tail node of either
+        
+        while left_head or right_head:
+            # if the head node of left is None, we're past the tail
+            # ADD the node from right to the merged linked list
+            if left_head is None:
+                current.next_node=right_head
+                # Call next on right to set loop condition to false
+                right_head=right_head.next_node
+            
+            # if the head node of right is None, we're past the tail
+            # ADD the node from the left to the merged linked list
+            elif right_head is None:
+                current.next_node=left_head
+                # Call next on left to set loop condition to false
+                left_head=left_head.next_node
+            
             else:
-                current.next_node = right_head
-                right_head = right_head.next_node
+                # Not at either tail node
+                # obtain node data to perform operations
+                left_data=left_head.data
+                right_data=right_head.data
+                # If data on left is less than data on right, set next of current to left node
+                if left_data<right_data:
+                    current.next_node=left_head
+                    # move left_head to next node
+                    left_head=left_head.next_node
+                # if data on left is greater than data on right, set next of current to right node
+                else:
+                    current.next_node=right_head
+                    # Move right to nexxt node
+                    right_head=right_head.next_node
+                    
+            # Move current to next node    
+            current=current.next_node
+                
+        # Discard fake head and set first merged head as head
+        head=merged.head.next_node
+        merged.head=head
+        
+        return merged
 
-        current = current.next_node
-
-    head = merged.head.next_node
-    merged.head = head
-
-    return merged
-
-
-def merge_sort(linked_list):
-    """
-    RETURNS a linked_list sorted in ascending order
-
-    DIVIDE: divide the linked_list into sublists until we are left with sublists containing only one node
-    CONQUIER: Recursively sort the sublists created in the previous step
-    COMBINE: combine the sorted sublists created in the previous step
-    """
-    # (STOPPING CONDITION for Recursive function) If linked_list is empty or has only 1 element, return the linked_list
-    if linked_list.size() == 1:
-        return linked_list
-    elif linked_list.head is None:
-        return linked_list
-
-    left_half, right_half = split(linked_list)
-
-    left = merge_sort(left_half)
-    right = merge_sort(right_half)
-
-    return merge(left, right)
+        
