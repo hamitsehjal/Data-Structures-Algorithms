@@ -1,4 +1,11 @@
 
+# -- This code snipped , if you want to pass file as an argument on command line
+# import sys
+# import load_numbers from load
+
+# number=load_numbers(sys.argv[1])
+
+
 import random
 
 
