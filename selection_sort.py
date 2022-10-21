@@ -1,6 +1,4 @@
 
-from queue import Empty
-
 
 def selection_sort(values):
     sorted_list=[]
