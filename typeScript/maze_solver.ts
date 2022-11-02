@@ -1,4 +1,4 @@
-function walk(maze:string[],wall:string,curr:Point,end:Point):boolean{
+function walk(maze:string[],wall:string,curr:Point,end:Point,seen:[][]):boolean{
     // 1. Base Case
     // off the map
     if(curr.x<0||curr.x>=maze[0].length||
@@ -15,6 +15,12 @@ function walk(maze:string[],wall:string,curr:Point,end:Point):boolean{
     // at the end
     if(curr.x==end.x && curr.y==end.y){
         return true;
+    }
+
+    // if we have seen it!!
+    if(seen[curr.y][curr.x])
+    {
+        return false;
     }
 }
 
