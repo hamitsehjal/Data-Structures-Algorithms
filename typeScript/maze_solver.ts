@@ -11,6 +11,11 @@ function walk(maze:string[],wall:string,curr:Point,end:Point):boolean{
     if(maze[curr.y][curr.x]===wall){
         return false;
     }
+
+    // at the end
+    if(curr.x==end.x && curr.y==end.y){
+        return true;
+    }
 }
 
 export default function solve(maze:string[],wall:string,start:Point, end:Point ):Point[]{
