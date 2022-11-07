@@ -1,6 +1,16 @@
 
 function qs(arr:number[],lo:number,hi:number):void{
 
+    // base condition!!
+    if(lo>=hi)
+    {
+        return;
+    }
+
+    const pivotIdx=partition(arr,lo,hi);
+    qs(arr,lo,pivotIdx-1);
+    qs(arr,pivotIdx+1,hi);
+
 }
 
 function partition(arr:number[],lo:number,hi:number):number{
