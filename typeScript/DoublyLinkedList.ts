@@ -73,20 +73,62 @@ export default class DoublyLinkedList<T> {
   append(item: T): void {
     this.length++;
 
-    const node={value:item} as Node<T>;
+    const node = { value: item } as Node<T>;
 
-    if(!this.tail)
-    {
-        this.head=this.tail=node;
-        return;
+    if (!this.tail) {
+      this.head = this.tail = node;
+      return;
     }
 
     // Here we do double linking!!
-    node.prev=this.tail;
-    this.tail.next=node;
-    
-    this.tail=node;
-    
+    node.prev = this.tail;
+    this.tail.next = node;
 
+    this.tail = node;
+  }
+
+  remove(item: T): T | undefined {
+    let curr = this.head;
+
+    for (let i = 0; i < this.length; i++) {
+      if (curr?.value === item) {
+        break;
+      }
+      curr = curr?.next;
+    }
+
+    // if there is no item to remove
+    if (!curr) {
+      return undefined;
+    }
+
+    // bookkeeiping
+    this.length--;
+
+    if (this.length === 0) {
+      const out = this.head?.value;
+      this.head = this.tail = undefined;
+      return out;
+    }
+
+    if (curr.prev) {
+      curr.prev = curr.next;
+    }
+    if (curr.next) {
+      curr.next.prev = curr.prev;
+      // curr.next=curr.prev --> this is primeagan code *** ask through github!!
+    }
+
+    if (curr === this.head) {
+      this.head = curr.next;
+    }
+
+    if (curr === this.tail) {
+      this.tail = curr.prev;
+    }
+
+    // breaking current off!!
+    curr.prev = curr.next = undefined;
+    return curr.value;
   }
 }
