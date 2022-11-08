@@ -13,19 +13,59 @@ export default class DoublyLinkedList<T> {
     this.head = undefined;
   }
 
-  prepend(item:T):void{
-    const node={value:item} as Node<T>;
+  prepend(item: T): void {
+    const node = { value: item } as Node<T>;
 
     this.length++;
-    if(!this.head)
-    {
-        this.head=node;
-        return;
+    if (!this.head) {
+      this.head = node;
+      return;
     }
 
     // Here we do double linking!!
-    node.next=this.head;
-    this.head.prev=node;
-    this.head=node;
+    node.next = this.head;
+    this.head.prev = node;
+    this.head = node;
   }
+
+  insert(item: T, idx: number): void {
+    if (idx > this.length) {
+      throw new Error("oh no!!");
+    }
+
+    // bookkeeping
+    this.length++;
+
+    if (idx === this.length) {
+      // if we are inserting at the end of the list, which basically is appending!!
+      this.append(item);
+      return;
+    } else if (idx === 0) {
+      // if we inserting at the first index, which basically is prepending!!
+      this.prepend(item);
+      return;
+    }
+
+    let curr = this.head;
+
+    // we will be traversing the list to get to that index!!
+    for (let i = 0; curr && i < idx; i++) {
+      curr = curr.next;
+    }
+
+    curr = curr as Node<T>;
+    const node = { value: item } as Node<T>;
+
+    // here "curr" is the node, before which we actually insert the new node
+
+    node.next = curr;
+    node.prev = curr.prev;
+    curr.prev = node;
+
+    if (curr.prev) {
+      curr.prev.next = curr;
+    }
+  }
+
+  append(item: T): void {}
 }
