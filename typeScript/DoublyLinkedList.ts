@@ -49,14 +49,15 @@ export default class DoublyLinkedList<T> {
 
     this.length++;
 
-    let curr = this.head;
+    // let curr = this.head;
 
-    // we will be traversing the list to get to that index!!
-    for (let i = 0; curr && i < idx; i++) {
-      curr = curr.next;
-    }
+    // // we will be traversing the list to get to that index!!
+    // for (let i = 0; curr && i < idx; i++) {
+    //   curr = curr.next;
+    // }
 
-    curr = curr as Node<T>;
+    const curr = this.getAt(idx) as Node<T>;
+
     const node = { value: item } as Node<T>;
 
     // here "curr" is the node, before which we actually insert the new node
@@ -102,6 +103,24 @@ export default class DoublyLinkedList<T> {
       return undefined;
     }
 
+    return this.removeNode(curr);
+  }
+
+  get(idx: number): T | undefined {
+    return this.getAt(idx)?.value;
+  }
+
+  removeAt(idx: number): T | undefined {
+    const node = this.getAt(idx);
+
+    if (!node) {
+      return undefined;
+    }
+
+    return this.removeNode(node);
+  }
+
+  private removeNode(node: Node<T>): T | undefined {
     // bookkeeiping
     this.length--;
 
@@ -111,24 +130,25 @@ export default class DoublyLinkedList<T> {
       return out;
     }
 
-    if (curr.prev) {
-      curr.prev = curr.next;
+    if (node.prev) {
+      node.prev = node.next;
     }
-    if (curr.next) {
-      curr.next.prev = curr.prev;
+    if (node.next) {
+      node.next.prev = node.prev;
       // curr.next=curr.prev --> this is primeagan code *** ask through github!!
     }
 
-    if (curr === this.head) {
-      this.head = curr.next;
+    if (node === this.head) {
+      this.head = node.next;
     }
 
-    if (curr === this.tail) {
-      this.tail = curr.prev;
+    if (node === this.tail) {
+      this.tail = node.prev;
     }
 
     // breaking current off!!
-    curr.prev = curr.next = undefined;
-    return curr.value;
+    node.prev = node.next = undefined;
+    return node.value;
   }
+  private getAt(idx: number): Node<T> | undefined {}
 }
