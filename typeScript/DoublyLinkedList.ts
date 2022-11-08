@@ -150,5 +150,21 @@ export default class DoublyLinkedList<T> {
     node.prev = node.next = undefined;
     return node.value;
   }
-  private getAt(idx: number): Node<T> | undefined {}
+  private getAt(idx: number): Node<T> | undefined {
+    let curr = this.head;
+
+    for (let i = 0; curr && i < this.length; i++) {
+      if (i === idx) {
+        break;
+      }
+      curr = curr.next;
+    }
+
+    // *** this is primeagan code, ask him on github!!
+    // for (let i = 0; curr && i < this.length; i++) {
+    //     curr = curr.next;
+    //   }
+
+    return curr;
+  }
 }
