@@ -7,10 +7,12 @@ type Node<T> = {
 export default class DoublyLinkedList<T> {
   public length: number;
   private head?: Node<T>;
+  private tail?: Node<T>;
 
   constructor() {
     this.length = 0;
     this.head = undefined;
+    this.tail = undefined;
   }
 
   prepend(item: T): void {
@@ -18,7 +20,7 @@ export default class DoublyLinkedList<T> {
 
     this.length++;
     if (!this.head) {
-      this.head = node;
+      this.head = this.tail = node;
       return;
     }
 
@@ -34,7 +36,6 @@ export default class DoublyLinkedList<T> {
     }
 
     // bookkeeping
-    this.length++;
 
     if (idx === this.length) {
       // if we are inserting at the end of the list, which basically is appending!!
@@ -45,6 +46,8 @@ export default class DoublyLinkedList<T> {
       this.prepend(item);
       return;
     }
+
+    this.length++;
 
     let curr = this.head;
 
