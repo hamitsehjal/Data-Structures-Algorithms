@@ -70,5 +70,23 @@ export default class DoublyLinkedList<T> {
     }
   }
 
-  append(item: T): void {}
+  append(item: T): void {
+    this.length++;
+
+    const node={value:item} as Node<T>;
+
+    if(!this.tail)
+    {
+        this.head=this.tail=node;
+        return;
+    }
+
+    // Here we do double linking!!
+    node.prev=this.tail;
+    this.tail.next=node;
+    
+    this.tail=node;
+    
+
+  }
 }
