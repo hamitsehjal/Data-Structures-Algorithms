@@ -1,3 +1,6 @@
 # Data Structures and Algorithms
-# AUTHOR: HAMIT SEHJAL
-Practice Examples of Data Structures and Algorithm
+
+## Learning-Path:
+
+1. Learn the Basics of Programming(Python)
+2. Build up Logical Thinking

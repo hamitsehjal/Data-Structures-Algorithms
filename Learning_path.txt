@@ -1,7 +1,0 @@
-Learning Path:
-
-1. Algorithms and Data Structures Tutorial for Beginner
-	SOURCE: YOUTUBE(FREE) - freeCodeCamp.org
-
-2. The Last Algorithms Course You'll Need
-	SOURCE: Frontend Masters (FREE) - recommnedation by Adam Gariba (LinkedIn)
