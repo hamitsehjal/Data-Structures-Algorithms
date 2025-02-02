@@ -116,7 +116,10 @@ def dfs(node):
 
 ## Binary Search Trees
 
-[Understanding Binary Search ](https://akcoding.com/dsa/non-linear-data-structures/tree-data-structure/binary-search-tree/)
+
+- [Understanding Binary Search Trees](https://akcoding.com/dsa/non-linear-data-structures/tree-data-structure/binary-search-tree/)
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk1MDM3MzkzLC00OTYxNjM3NDldfQ==
+eyJoaXN0b3J5IjpbLTUxNTAwMjc5OSwtNDk2MTYzNzQ5XX0=
 -->
