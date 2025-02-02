@@ -1,7 +1,7 @@
 # Trees
 
 
-
+1. Understand Recursion First: Solve this classic [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/description/) Problem to understand how recursion is so powerfull
 
 When solving binary tree problems, understanding the **direction of data flow** (top-down via parameters vs. bottom-up via return values) is critical. Here’s a structured guide to help you decide:
 
@@ -121,5 +121,6 @@ def dfs(node):
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxNTAwMjc5OSwtNDk2MTYzNzQ5XX0=
+eyJoaXN0b3J5IjpbMTY5NTkxNDYwMywtNTE1MDAyNzk5LC00OT
+YxNjM3NDldfQ==
 -->
