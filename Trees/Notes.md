@@ -1,3 +1,7 @@
+# Trees
+
+
+
 
 When solving binary tree problems, understanding the **direction of data flow** (top-down via parameters vs. bottom-up via return values) is critical. Here’s a structured guide to help you decide:
 
@@ -109,7 +113,10 @@ def dfs(node):
 - **Bottom-up (return values):** Use for subtree aggregation (heights, validity).
 - **Hybrid:** Combine when both are needed (e.g., LCA).
 
-By practicing these patterns, you’ll intuitively recognize which approach to apply in coding interviews! 🚀
+
+## Binary Search Trees
+
+[Understanding Binary Search ](https://akcoding.com/dsa/non-linear-data-structures/tree-data-structure/binary-search-tree/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5NjE2Mzc0OV19
+eyJoaXN0b3J5IjpbODk1MDM3MzkzLC00OTYxNjM3NDldfQ==
 -->
