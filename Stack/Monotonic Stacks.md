@@ -6,6 +6,7 @@ Monotonic stacks can be four types:
 4. Non-Decreasing Stack
 
 
+Template to buil
 ```
 function buildMonoStack(array){
 // initialize a stack
@@ -17,17 +18,21 @@ for (i=0;i<len(array;i++){
 			
 			// Do something with the stackTop
 			// For example,
-			// nextGreater[stackTop] = array[i]
+			// nextGreater[stackTop] = stack.at(-1)
 		}
 		
 		if (stack.length) {
-			// if stack has still some element
+			// if stack has still some elements left
+			// do something with stack top here e.g.,
+			previousGreater[i] = stack.at(-1)
 		}
+
+		stack.push(i)
 	}
 
 }
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODcxMDAxNTIsNDQwOTIwNTg1XX0=
+eyJoaXN0b3J5IjpbLTkwNTg5OTAyNiw0NDA5MjA1ODVdfQ==
 -->
