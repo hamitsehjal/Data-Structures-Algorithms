@@ -6,7 +6,7 @@ Monotonic stacks can be four types:
 4. Non-Decreasing Stack
 
 
-Template to buil
+Template to build a stack that keep the monotonous property alive through the execution of the program.
 ```
 function buildMonoStack(array){
 // initialize a stack
@@ -34,5 +34,5 @@ for (i=0;i<len(array;i++){
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwNTg5OTAyNiw0NDA5MjA1ODVdfQ==
+eyJoaXN0b3J5IjpbLTE3OTcxMTY2ODEsNDQwOTIwNTg1XX0=
 -->
