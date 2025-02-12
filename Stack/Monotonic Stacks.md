@@ -17,7 +17,11 @@ for (i=0;i<len(array;i++){
 			
 			// Do something with the stackTop
 			// For example,
-			// nextGreater[i] = array[next
+			// nextGreater[stackTop] = array[i]
+		}
+		
+		if (stack.length) {
+			// if stack has still some element
 		}
 	}
 
@@ -25,5 +29,5 @@ for (i=0;i<len(array;i++){
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjM3MDYyMjIsNDQwOTIwNTg1XX0=
+eyJoaXN0b3J5IjpbLTE2ODcxMDAxNTIsNDQwOTIwNTg1XX0=
 -->
