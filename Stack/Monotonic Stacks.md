@@ -1,6 +1,6 @@
 Monotonic stacks can be four types:
 
-1. Strictly Decreasing Stack: every element is smaller than its previous element
+1. Strictly Decreasing Stack: every element is smaller than its previous elemententer code here
 2. Non-Increasing Stack: every element is either smaller or equals to its previous element
 3. Strictly Increasing Stack
 4. Non-Decreasing Stack
@@ -34,6 +34,6 @@ for (i=0;i<len(array;i++){
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1MTI3ODAzNCwtMTc5NzExNjY4MSw0ND
-A5MjA1ODVdfQ==
+eyJoaXN0b3J5IjpbNTY5MDMxMjMzLC00NTEyNzgwMzQsLTE3OT
+cxMTY2ODEsNDQwOTIwNTg1XX0=
 -->
