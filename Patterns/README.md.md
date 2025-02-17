@@ -16,7 +16,10 @@ Let's say N is 5 and i grows from 0 to 4
 ## Sliding Window
 
 When Do we use it?
-- When the questions contains
+
+- Things we can iterate over sequentially
+	- Contiguous sequence of elements
+	- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDQ4Njg0MTRdfQ==
+eyJoaXN0b3J5IjpbLTg0NDgzNTA2MV19
 -->
