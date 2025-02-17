@@ -16,10 +16,11 @@ Let's say N is 5 and i grows from 0 to 4
 ## Sliding Window
 
 When Do we use it?
-
 - Things we can iterate over sequentially
 	- Contiguous sequence of elements
-	- 
+	- Arrays, Strings, Linked Lists
+- Find Max,min, longest, shortest, contained
+	- maybe we need to calculate something
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0NDgzNTA2MV19
+eyJoaXN0b3J5IjpbLTEwMTc3MDUwNTBdfQ==
 -->
