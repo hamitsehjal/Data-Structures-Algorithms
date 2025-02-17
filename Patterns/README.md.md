@@ -15,12 +15,18 @@ Let's say N is 5 and i grows from 0 to 4
 
 ## Sliding Window
 
-When Do we use it?
-- Things we can iterate over sequentially
+How to identify the Sliding Window Questions?
+- Question contains things we can iterate over sequentially
 	- Contiguous sequence of elements
 	- Arrays, Strings, Linked Lists
-- Find Max,min, longest, shortest, contained
+- Question asks us to find Max,min, longest, shortest, contained
 	- maybe we need to calculate something
+
+Question Variants
+1. Fixed Window Variant
+	- max Sum subarray of size k
+2. Dynamic Window Variant
+	- Smallest sum >= some valu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTc3MDUwNTBdfQ==
+eyJoaXN0b3J5IjpbNjkwOTA3MzA2LC0xMDE3NzA1MDUwXX0=
 -->
