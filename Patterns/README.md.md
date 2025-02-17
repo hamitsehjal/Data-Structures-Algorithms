@@ -26,7 +26,10 @@ Question Variants
 1. Fixed Window Variant
 	- max Sum subarray of size k
 2. Dynamic Window Variant
-	- Smallest sum >= some valu
+	- Smallest sum >= some value S
+3. Dynamic variant with Auxially data structure
+	- Longest substring with no more than k distinct characters
+	- String Permutation
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjkwOTA3MzA2LC0xMDE3NzA1MDUwXX0=
+eyJoaXN0b3J5IjpbMTQzNjQ0NTk3MywtMTAxNzcwNTA1MF19
 -->
