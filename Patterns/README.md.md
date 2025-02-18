@@ -29,7 +29,8 @@ Question Variants
 	- Smallest sum >= some value S
 3. Dynamic variant with Auxially data structure
 	- Longest substring with no more than k distinct characters
-	- String Permutation
+	- String Permutationd
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzNjQ0NTk3MywtMTAxNzcwNTA1MF19
+eyJoaXN0b3J5IjpbLTE0MzQ3NDYzNzMsMTQzNjQ0NTk3MywtMT
+AxNzcwNTA1MF19
 -->
