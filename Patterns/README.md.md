@@ -19,7 +19,7 @@ How to identify the Sliding Window Questions?
 - Question contains things we can iterate over sequentially
 	- Contiguous sequence of elements
 	- Arrays, Strings, Linked Lists
-- Question asks us to find Max,min, longest, shortest, contained
+- Question asks us to find Max,min, longest, shortest, contained, number of
 	- maybe we need to calculate something
 
 Question Variants
@@ -29,8 +29,8 @@ Question Variants
 	- Smallest sum >= some value S
 3. Dynamic variant with Auxially data structure
 	- Longest substring with no more than k distinct characters
-	- String Permutationd
+	- String Permutation
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzQ3NDYzNzMsMTQzNjQ0NTk3MywtMT
-AxNzcwNTA1MF19
+eyJoaXN0b3J5IjpbNjg2OTE2MjExLDE0MzY0NDU5NzMsLTEwMT
+c3MDUwNTBdfQ==
 -->
