@@ -71,15 +71,16 @@ In each of the template, the variable that contains the final answer (`hi`  for 
 When we exit from  `while`  loop,  `lo`  and  `hi`  are adjacent to each other.  `(lo + 1 < hi)`  will not be true when  `lo + 1 === hi`.
 
 The  `while`  loop condition guarantees that you always will have at least three values in the search space (`lo`,  `mid`,  `hi`). Although, the way we initialize the values for  `lo`  and  `hi`, only one of them holds a valid value at any point in time.
-
+![comparison between minimization template and maximization template for binary search](https://assets.leetcode.com/users/images/0dae011f-bb67-48bc-a870-5662fa42e6a0_1659209465.9950979.png)
 Binary search usually works for sorted arrays. But don't make the mistake of assuming it works  _only_  on sorted arrays. A bigger question to ask is if the search space can be  `perceived as`  or  `converted into`  a monotonically increasing / decreasing function. Typically, you'll be asked to return a minimum value that satisfies a given condition or the maximum value that satisfies a given condition. We'll learn it as we go through the examples below.
 
+## Process
 1.  Decide the search space.(`lo`  and  `hi`  will be initialized accordingly)
 2.  Find a monotonic function which increases or decreases with the input. It can take one of the two forms (`false`  followed by  `true`  or  `true`  followed by  `false`)
 3.  decide whether  `lo`  holds the answer or  `hi`  holds the answer. If it is a  `minimization`  problem (`FFFFTTT`) then hi holds the answer. If it is a  `maximization`  problem (`TTTFFFF`) then  `lo`  holds the answer.
 
 *Usually, coming up with a monotonic function is the most crucial steps.*
-
+![image](https://assets.leetcode.com/users/images/6b7e07ff-38fa-4dc7-8636-eda758e0a7e2_1659260190.2577953.png)
 A short summary to remember
 ```
 Minimization Problem
@@ -147,6 +148,6 @@ For the “search insert position” problem:
 
 By following these steps, you can systematically choose a predicate that not only meets the problem’s requirements but also ensures the binary search algorithm works correctly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxMzM3MDUwNiwtNTg2ODI0NTYsMTQ1OD
-Y2MjcxMl19
+eyJoaXN0b3J5IjpbLTE3MTcyNTYzOTQsLTU4NjgyNDU2LDE0NT
+g2NjI3MTJdfQ==
 -->
