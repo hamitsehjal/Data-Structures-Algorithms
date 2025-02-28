@@ -1,12 +1,19 @@
 # Binary Search
 
+## When to use binary search
+
+Binary search divides the search space into half until we reach the result. As a result the time performance of binary search (`log n`) is considerably better than linear search (`n`). This means where linear search will take  `10^6`  steps, binary search will do it in only  `17`  steps.
+
+Binary search usually works for sorted arrays. But don't make the mistake of assuming it works  _only_  on sorted arrays. A bigger question to ask is if the search space can be  `perceived as`  or  `converted into`  a monotonically increasing / decreasing function. Typically, you'll be asked to return a minimum value that satisfies a given condition or the maximum value that satisfies a given condition. We'll learn it as we go through the examples below.
+
 1.  Decide the search space.(`lo`  and  `hi`  will be initialized accordingly)
 2.  Find a monotonic function which increases or decreases with the input. It can take one of the two forms (`false`  followed by  `true`  or  `true`  followed by  `false`)
 3.  decide whether  `lo`  holds the answer or  `hi`  holds the answer. If it is a  `minimization`  problem (`FFFFTTT`) then hi holds the answer. If it is a  `maximization`  problem (`TTTFFFF`) then  `lo`  holds the answer.
 
 *Usually, coming up with a monotonic function is the most crucial steps.*
 
-
+A short summary to remember
+```
 Minimization Problem
 - monotonically increasing function
 - (False , False, False,...., True, True, True) = False -> True
@@ -16,7 +23,7 @@ Maximization Problem
 - monotonically decreasing function
 - (True, True, True, ..., False, False, False) = True -> False
 - Finding the last true
-
+```
 
 ## Choosing the Right Predicate
 When approaching a binary search problem, choosing the right predicate is crucial. Here’s how to figure it out:
@@ -72,5 +79,5 @@ For the “search insert position” problem:
 
 By following these steps, you can systematically choose a predicate that not only meets the problem’s requirements but also ensures the binary search algorithm works correctly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5NDgzODA3NCwxNDU4NjYyNzEyXX0=
+eyJoaXN0b3J5IjpbLTU4NjgyNDU2LDE0NTg2NjI3MTJdfQ==
 -->
