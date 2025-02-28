@@ -3,6 +3,74 @@
 ## When to use binary search
 
 Binary search divides the search space into half until we reach the result. As a result the time performance of binary search (`log n`) is considerably better than linear search (`n`). This means where linear search will take  `10^6`  steps, binary search will do it in only  `17`  steps.
+## Template
+
+I try to convert each binary search related problem in either of the two formats - minimization problem (minimize  `x`  such that  `condition(x)`  is  `true`) or maximization problem (maximize  `x`  such that  `condition(x)`  is  `true`). In both the cases we construct the  `condition(x)`  such that it is  `true`  for our answer.
+
+```
+
+// minimize x such that condition(x) is true
+function binarySearch(arr) {
+  // decide what is the search space
+  // hi should be able to take all possible values in the search space
+  // lo points to an invalid value (the negative case of the if condition)
+  let lo = -1, hi = arr.length;
+  while (lo + 1 < hi) {
+    let mid = lo + Math.floor((hi - lo) / 2);
+    if (condition(arr, mid)) {
+      hi = mid
+    } else {
+      lo = mid;
+    }
+  }
+
+  // in minimization template, hi contains the return index
+  return hi;
+}
+
+// maximize x such that condition(x) is true
+function binarySearch(arr) {
+  // decide what is the search space
+  // lo should be able to take all possible values in that search space
+  // hi points to an invalid value (the negative case of the if condition)
+  let lo = -1, hi = arr.length;
+  while (lo + 1 < hi) {
+    let mid = lo + Math.floor((hi - lo) / 2);
+    if (condition(arr, mid)) {
+      lo = mid;
+    } else {
+      hi = mid;
+    }
+  }
+
+  // in maximization template, lo contains the return index
+  return lo;
+}
+
+function condition(arr, idx) {
+  // some condition on arr[idx]
+  // return true or false
+  return true;
+}
+```
+
+#### Example
+
+**Minimization**  - Find  _first occurrance_  of an element in a sorted array with duplicates.  
+**Maximization**  - Find  _last occurrance_  of an element in a sorted array with duplicates.
+
+## Notes
+
+If you look at both the templates carefully. We can make the following  **observations**:
+
+In minimization template,  `hi`  contains the final answer.  
+In maximization template,  `lo`  contains the final answer.
+
+In each of the template, the variable that contains the final answer (`hi`  for minimization /  `lo`  for maximization), should be able to take all possible values in the search space. In other words, one variable always holds the answer (or the valid value) and the other variable holds the invalid value.
+
+When we exit from  `while`  loop,  `lo`  and  `hi`  are adjacent to each other.  `(lo + 1 < hi)`  will not be true when  `lo + 1 === hi`.
+
+The  `while`  loop condition guarantees that you always will have at least three values in the search space (`lo`,  `mid`,  `hi`). Although, the way we initialize the values for  `lo`  and  `hi`, only one of them holds a valid value at any point in time.
 
 Binary search usually works for sorted arrays. But don't make the mistake of assuming it works  _only_  on sorted arrays. A bigger question to ask is if the search space can be  `perceived as`  or  `converted into`  a monotonically increasing / decreasing function. Typically, you'll be asked to return a minimum value that satisfies a given condition or the maximum value that satisfies a given condition. We'll learn it as we go through the examples below.
 
@@ -79,5 +147,6 @@ For the “search insert position” problem:
 
 By following these steps, you can systematically choose a predicate that not only meets the problem’s requirements but also ensures the binary search algorithm works correctly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4NjgyNDU2LDE0NTg2NjI3MTJdfQ==
+eyJoaXN0b3J5IjpbLTUxMzM3MDUwNiwtNTg2ODI0NTYsMTQ1OD
+Y2MjcxMl19
 -->
