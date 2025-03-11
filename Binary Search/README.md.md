@@ -273,7 +273,74 @@ Finding the last occurrence of a target in a sorted array with duplicates (e.g.,
 
 ### **Conclusion**
 These templates provide a reliable framework for solving binary search problems as either minimization or maximization tasks. By defining the condition appropriately and following the pointer initialization, loop condition, and update rules, you can efficiently find the first `True` or last `True` in any binary search scenario. Practice applying these templates to problems like finding insertion points, boundaries, or last occurrences, and you’ll see how versatile they are!
+
+
+I’m happy to clarify why we add 1 in the `mid = left + (right - left + 1) // 2` formula for the maximization template in binary search. This tweak is specific to finding the **last `True`** (maximization), and it’s all about ensuring the search progresses correctly without getting stuck in an infinite loop. Let’s break it down step by step.
+
+---
+
+### **What’s the Maximization Template?**
+In binary search, the maximization template is used to find the **last position** where a condition is `True`. For example, imagine an array of `True` and `False` values, like `[True, True, False, False]`, and we want the last `True` (index 1). The algorithm works by:
+- Maintaining two pointers: `left` (start of the search range) and `right` (end of the search range).
+- Repeatedly computing a midpoint `mid` and checking `condition(mid)`:
+  - If `condition(mid)` is `True`, the last `True` could be at `mid` or to its right, so we set `left = mid`.
+  - If `condition(mid)` is `False`, the last `True` must be to the left of `mid`, so we set `right = mid - 1`.
+- The loop continues until `left` and `right` converge, and `left` gives us the answer.
+
+---
+
+### **Standard Mid Calculation**
+Normally, in binary search, we calculate the midpoint as:
+```python
+mid = left + (right - left) // 2
+```
+This is a safe way to write `(left + right) // 2` without risking integer overflow. It works great for many cases, like finding the **first `True`** (minimization), because the pointer updates (`left = mid + 1` when `False`, `right = mid` when `True`) naturally shrink the search space.
+
+But in the maximization template, where we set `left = mid` when `condition(mid)` is `True`, this standard formula can cause problems. Let’s see why.
+
+---
+
+### **The Problem with the Standard Formula**
+Imagine a small array: `[True, False]`. We want the last `True`, which is at index 0. Here’s what happens with the standard `mid` calculation:
+- Start with `left = 0`, `right = 1`.
+- Compute `mid = 0 + (1 - 0) // 2 = 0 + 0 = 0`.
+- Check `condition(0) == True`, so set `left = mid = 0`.
+- Now, `left = 0`, `right = 1`—no change in the range!
+- Next iteration: `mid = 0 + (1 - 0) // 2 = 0` again, `condition(0) == True`, `left = 0` again.
+- This loops forever because `left` never moves forward.
+
+The issue is that when `left` and `right` are close (e.g., adjacent), the standard `mid` calculation rounds **down**, often making `mid` equal to `left`. Since we set `left = mid` when the condition is `True`, the search doesn’t progress, and we’re stuck.
+
+---
+
+### **Why Add 1?**
+To fix this, we tweak the formula to:
+```python
+mid = left + (right - left + 1) // 2
+```
+Adding 1 to `(right - left)` before dividing by 2 biases the midpoint **upward** (towards the right). This ensures that `mid` is at least `left + 1` when `right > left`, allowing the search to move forward. Let’s revisit the example:
+- Start with `left = 0`, `right = 1`.
+- Compute `mid = 0 + (1 - 0 + 1) // 2 = 0 + 2 // 2 = 0 + 1 = 1`.
+- Check `condition(1) == False`, so set `right = mid - 1 = 1 - 1 = 0`.
+- Now, `left = 0`, `right = 0`, and the loop ends.
+- Return `left = 0`, the correct index of the last `True`.
+
+Here, `mid` was 1 instead of 0, letting us test the right side and shrink the range properly when the condition was `False`.
+
+---
+
+### **How It Ensures Progress**
+- When `condition(mid)` is `True`: Setting `left = mid` moves `left` to a new position (since `mid > left` thanks to the +1), exploring the right half.
+- When `condition(mid)` is `False`: Setting `right = mid - 1` shrinks the range from the right, as usual.
+- The upward bias prevents `mid` from stalling at `left`, which is critical because the maximization template relies on `left` advancing toward the answer.
+
+For comparison, in the minimization template (first `True`), we don’t need this tweak because we move `left = mid + 1` when `condition(mid)` is `False`, which naturally progresses the search with the standard formula.
+
+---
+
+### **Conclusion**
+We add 1 in `mid = left + (right - left + 1) // 2` for the maximization template to avoid infinite loops and ensure the search moves forward. By rounding `mid` up when `left` and `right` are close, we guarantee that setting `left = mid` actually changes the range when the condition is `True`. This small adjustment makes the algorithm robust for finding the last `True` efficiently!
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjMyMDI0MzI2LC0xNzE3MjU2Mzk0LC01OD
-Y4MjQ1NiwxNDU4NjYyNzEyXX0=
+eyJoaXN0b3J5IjpbLTY2OTc4Mzg3Miw2MzIwMjQzMjYsLTE3MT
+cyNTYzOTQsLTU4NjgyNDU2LDE0NTg2NjI3MTJdfQ==
 -->
