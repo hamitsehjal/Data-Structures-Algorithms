@@ -208,8 +208,13 @@ function findNextSmallerIndexes(arr) {
 | Previous Greater    | Decreasing (strict)       | `stackTop <= current`  | Outside while loop  |
 | Next Smaller        | Increasing (equal allowed) | `stackTop > current`   | Inside while loop   |
 | Previous Smaller    | Increasing (strict)       | `stackTop >= current`  | Outside while loop  |
+
+
+
+
+![image](https://assets.leetcode.com/users/images/3b666e9c-4200-4245-bce8-7d7e81649f8f_1659039679.8631365.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg0NzkyOTk3LC0xMjMzMDA0NjU2LDU2OT
-AzMTIzMywtNDUxMjc4MDM0LC0xNzk3MTE2NjgxLDQ0MDkyMDU4
-NV19
+eyJoaXN0b3J5IjpbLTE3MDM2Mjg0NjAsLTEyMzMwMDQ2NTYsNT
+Y5MDMxMjMzLC00NTEyNzgwMzQsLTE3OTcxMTY2ODEsNDQwOTIw
+NTg1XX0=
 -->
