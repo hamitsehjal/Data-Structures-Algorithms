@@ -213,8 +213,12 @@ function findNextSmallerIndexes(arr) {
 
 
 ![image](https://assets.leetcode.com/users/images/3b666e9c-4200-4245-bce8-7d7e81649f8f_1659039679.8631365.png)
+
+
+## Resources
+- [Original LeetCode Post](https://leetcode.com/discuss/post/2347639/a-comprehensive-guide-and-template-for-m-irii/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDM2Mjg0NjAsLTEyMzMwMDQ2NTYsNT
-Y5MDMxMjMzLC00NTEyNzgwMzQsLTE3OTcxMTY2ODEsNDQwOTIw
-NTg1XX0=
+eyJoaXN0b3J5IjpbMTU2NzMyOTc5OSwtMTcwMzYyODQ2MCwtMT
+IzMzAwNDY1Niw1NjkwMzEyMzMsLTQ1MTI3ODAzNCwtMTc5NzEx
+NjY4MSw0NDA5MjA1ODVdfQ==
 -->
