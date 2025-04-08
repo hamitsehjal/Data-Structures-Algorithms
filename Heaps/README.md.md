@@ -3,6 +3,7 @@
 - whenever, you have to find min/max of something repeatedly, consider using `Heap` (Priority Queue)
 -
 
+## Two Heaps Pattern
 Okay, let's dive into the **Two Heaps** pattern, a useful technique for solving certain types of coding interview problems, especially those involving medians or maintaining order statistics in dynamic datasets. We'll use Python for the explanations and code examples.
 
 **What is the Two Heaps Pattern?**
@@ -336,5 +337,5 @@ class SlidingWindowMedian:
 
 Remember to practice these problems and variations to get comfortable with the balancing and edge-case handling!
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjAwMjMyNzUsMTQwNTM4OTEyOV19
+eyJoaXN0b3J5IjpbMTI2ODY1MTc0NCwxNDA1Mzg5MTI5XX0=
 -->
