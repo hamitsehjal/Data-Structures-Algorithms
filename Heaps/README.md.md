@@ -334,8 +334,6 @@ class SlidingWindowMedian:
 -   Requires careful balancing after insertions (and removals in sliding window).
 -   Python requires negating values for the max-heap simulation using `heapq`.
 -   Removal in sliding windows often requires lazy deletion techniques.
-
-Remember to practice these problems and variations to get comfortable with the balancing and edge-case handling!
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2ODY1MTc0NCwxNDA1Mzg5MTI5XX0=
+eyJoaXN0b3J5IjpbMTY2NDI1OTQxLDE0MDUzODkxMjldfQ==
 -->
