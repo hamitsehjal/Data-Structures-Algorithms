@@ -274,6 +274,169 @@ This comprehensive coverage ensures you’re well-prepared for system design int
 - [What is Eventual Consistency Definition FAQs ScyllaDB](https://www.scylladb.com/glossary/eventual-consistency/)
 - [What is Eventual Consistency Aerospike](https://aerospike.com/glossary/eventual-consistency/)
 - [Eventual vs Strong Consistency in Distributed Databases GeeksforGeeks](https://www.geeksforgeeks.org/eventual-vs-strong-consistency-in-distributed-databases/)
+
+Here's a structured approach to choosing load-balancing algorithms with real-world examples:
+
+## **Key Decision Factors**
+
+1.  **Traffic Type**: Stateful (sessions) vs. stateless (APIs)
+    
+2.  **Server Uniformity**: Identical capacity vs. mixed hardware
+    
+3.  **Scalability Needs**: Static vs. dynamic scaling
+    
+4.  **Session Affinity**: Required (e.g., shopping carts) vs. unnecessary (REST APIs)
+    
+5.  **Traffic Patterns**: Bursty vs. steady, global vs. regional
+    
+
+## **Algorithm Selection Guide**
+
+Algorithm
+
+Best For
+
+Real-World Example
+
+**Round Robin**
+
+Stateless APIs with uniform servers
+
+University portals (e.g., Texas A&M[^6])
+
+**Weighted Round Robin**
+
+Mixed server capacities (static weights)
+
+Hybrid cloud setups (older + newer servers)[^8]
+
+**Least Connections**
+
+Long-lived connections (e.g., databases)
+
+GitHub’s database clusters[^6]
+
+**Least Response Time**
+
+Low-latency APIs
+
+Financial trading platforms
+
+**Consistent Hashing**
+
+Stateful apps, dynamic scaling
+
+Netflix’s CDN routing[^6]
+
+**IP Hash**
+
+Legacy apps requiring simple session affinity
+
+Small e-commerce sites
+
+**Geolocation**
+
+Global traffic distribution
+
+Airbnb’s multi-region routing[^6]
+
+## **Real-World Implementations**
+
+1.  **Netflix**
+    
+    -   **Algorithm**: Consistent hashing + geolocation
+        
+    -   **Why**:
+        
+        -   Preserves cache locality for video streams[^6].
+            
+        -   Routes users to nearest CDN node[^6].
+            
+2.  **GitHub**
+    
+    -   **Algorithm**: Least connections + Layer 7 routing
+        
+    -   **Why**:
+        
+        -   Balances database queries across read replicas[^6].
+            
+        -   Directs Git operations to specialized servers[^6].
+            
+3.  **Airbnb**
+    
+    -   **Algorithm**: Dynamic scaling + least response time
+        
+    -   **Why**:
+        
+        -   Handles 1M+ searches/sec during peak bookings[^6].
+            
+        -   Prioritizes fastest servers for price calculations[^6].
+            
+4.  **University of Northampton**
+    
+    -   **Algorithm**: Weighted round-robin
+        
+    -   **Why**:
+        
+        -   Balances older on-premise servers with newer cloud instances[^6].
+            
+
+## **Decision Framework**
+
+1.  **Session Required?**
+    
+    -   Yes → **Consistent Hashing** (e.g., shopping carts)
+        
+    -   No → **Least Connections** (e.g., APIs)
+        
+2.  **Global Traffic?**
+    
+    -   Yes → **Geolocation DNS** (e.g., Spotify’s CDN[^6])
+        
+    -   No → **Layer 4/7 Load Balancer** (e.g., Kubernetes Ingress[^6])
+        
+3.  **Mixed Server Types?**
+    
+    -   Yes → **Weighted Round Robin** (e.g., hybrid clouds[^8])
+        
+    -   No → **Round Robin** (e.g., stateless microservices[^6])
+        
+
+## **Edge Cases**
+
+-   **Bursty Traffic**: Use **predictive scaling** (Netflix’s ML-driven approach[^6]) + **least connections**.
+    
+-   **Security Critical**: Add **SYN flood detection** (e.g., AWS Shield[^5]) with **rate limiting**.
+    
+-   **Microservices**: Implement **service mesh** (e.g., Spotify’s Skipper[^6]) for granular control.
+    
+
+## **Tools & Services**
+
+-   **Cloud-Native**: AWS ALB (least response time), Azure Traffic Manager (geolocation)[^9].
+    
+-   **On-Premise**: Kemp LoadMaster (weighted round-robin), NGINX (IP hash)[^2][^4].
+    
+-   **Hybrid**: HAProxy (advanced least connections), Envoy (consistent hashing)[^6][^7].
+    
+
+By aligning algorithm choice with traffic patterns and architectural constraints, systems achieve optimal performance (e.g., Netflix’s sub-200ms streaming[^6]) while minimizing costs.
+
+### Citations:
+
+1.  [https://aws.amazon.com/what-is/load-balancing/](https://aws.amazon.com/what-is/load-balancing/)
+2.  [https://kemptechnologies.com/load-balancer/load-balancing-algorithms-techniques](https://kemptechnologies.com/load-balancer/load-balancing-algorithms-techniques)
+3.  [https://www.alibabacloud.com/tech-news/a/load_balancer/gu0idw1t3r-load-balancing-algorithms-which-to-choose](https://www.alibabacloud.com/tech-news/a/load_balancer/gu0idw1t3r-load-balancing-algorithms-which-to-choose)
+4.  [https://www.jscape.com/blog/load-balancing-algorithms](https://www.jscape.com/blog/load-balancing-algorithms)
+5.  [https://stonefly.com/resources/load-balancing-algorithms-types-use-cases/](https://stonefly.com/resources/load-balancing-algorithms-types-use-cases/)
+6.  [https://www.overtsoftware.com/load-balancing-real-world-success/](https://www.overtsoftware.com/load-balancing-real-world-success/)
+7.  [https://en.wikipedia.org/wiki/Load_balancing_(computing)](https://en.wikipedia.org/wiki/Load_balancing_(computing))
+8.  [https://deploy.equinix.com/blog/comparing-load-balancing-algorithms/](https://deploy.equinix.com/blog/comparing-load-balancing-algorithms/)
+9.  [https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview)
+
+----------
+
+Answer from Perplexity: [pplx.ai/share](https://www.perplexity.ai/search/pplx.ai/share)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTY5NTk0NV19
+eyJoaXN0b3J5IjpbMTgyODE4MTEyLC0xMDk2OTU5NDVdfQ==
 -->
