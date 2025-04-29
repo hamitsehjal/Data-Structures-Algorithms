@@ -588,6 +588,23 @@ class BSTMap:
     def size(self)->int:
         return self.size
 ```
+
+## Binary Trees
+## **1. Logarithmic Relationship Between Height and Nodes**
+
+In a full binary tree, the height  hh  grows logarithmically with the number of nodes  nn:  
+h≈log⁡2(n+1)−1h≈log2(n+1)−1
+
+## **Why This Matters**
+
+-   **Efficiency**: As  nn  increases, the height grows slowly (logarithmically). For example:
+    
+    -   n=1,000n=1,000  →  h≈9h≈9
+        
+    -   n=1,000,000n=1,000,000  →  h≈19h≈19  
+        This ensures operations like search, insertion, and deletion take  O(log⁡n)O(logn)  time, which is exponentially faster than linear time  O(n)O(n)
+        
+-   **Balanced Structure**: Logarithmic height guarantees the tree remains "shallow," minimizing the number of comparisons or traversals needed to reach any node
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3MTA3NDgyXX0=
+eyJoaXN0b3J5IjpbLTU2Nzc4NDM4MSwtNzcxMDc0ODJdfQ==
 -->
