@@ -590,21 +590,54 @@ class BSTMap:
 ```
 
 ## Binary Trees
+
 ## **1. Logarithmic Relationship Between Height and Nodes**
 
-In a full binary tree, the height  hh  grows logarithmically with the number of nodes  nn:  
-h≈log⁡2(n+1)−1h≈log2(n+1)−1
+In a full binary tree, the height hhh grows logarithmically with the number of nodes nnn:  
+h≈log⁡2(n+1)−1h \approx \log_2(n + 1) - 1h≈log2(n+1)−1
 
 ## **Why This Matters**
 
--   **Efficiency**: As  nn  increases, the height grows slowly (logarithmically). For example:
+-   **Efficiency**: As nnn increases, the height grows slowly (logarithmically). For example:
     
-    -   n=1,000n=1,000  →  h≈9h≈9
+    -   n=1,000n = 1,000n=1,000 → h≈9h \approx 9h≈9
         
-    -   n=1,000,000n=1,000,000  →  h≈19h≈19  
-        This ensures operations like search, insertion, and deletion take  O(log⁡n)O(logn)  time, which is exponentially faster than linear time  O(n)O(n)
-        
--   **Balanced Structure**: Logarithmic height guarantees the tree remains "shallow," minimizing the number of comparisons or traversals needed to reach any node
+    -   n=1,000,000n = 1,000,000n=1,000,000 → h≈19h \approx 19h≈19  
+        This ensures operations like search, insertion, and deletion take O(log⁡n)O(\log n)O(logn) time, which is exponentially faster than linear time O(n)O(n)O(n)
+-   **Balanced Structure**: Logarithmic height guarantees the tree remains "shallow," minimizing the number of comparisons or traversals needed to reach any node[3](https://www.andrew.cmu.edu/course/15-121/lectures/Trees/trees.html)[8](https://en.wikipedia.org/wiki/Binary_tree).
+    
+
+## **2. Leaf Nodes in a Full Binary Tree**
+
+In a **perfect** full binary tree of height hhh:
+
+-   **Leaf nodes**: 2h2^h2h
+    
+-   **Total nodes**: 2h+1−12^{h+1} - 12h+1−1
+    
+
+## **Why Leaves Are Half the Total Nodes**
+
+-   The last level (height hhh) contains 2h2^h2h nodes, which is **double** the nodes at level h−1h-1h−1 (2h−12^{h-1}2h−1).
+    
+-   The total nodes are the sum of all levels:  
+    20+21+⋯+2h=2h+1−12^0 + 2^1 + \dots + 2^h = 2^{h+1} - 120+21+⋯+2h=2h+1−1
+    
+-   Thus, leaves (2h2^h2h) are approximately **half** of the total nodes:  
+    2h2h+1−1≈12\frac{2^h}{2^{h+1} - 1} \approx \frac{1}{2}2h+1−12h≈21[
+
+## **Example**
+
+For h=3h = 3h=3:
+
+-   Total nodes: 23+1−1=152^{3+1} - 1 = 1523+1−1=15
+    
+-   Leaf nodes: 23=82^3 = 823=8
+    
+-   Ratio: 815≈53%\frac{8}{15} \approx 53\%158≈53%
+    
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2Nzc4NDM4MSwtNzcxMDc0ODJdfQ==
+eyJoaXN0b3J5IjpbMjYzNDIxODU0LC03NzEwNzQ4Ml19
 -->
