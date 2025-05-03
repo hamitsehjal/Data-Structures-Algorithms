@@ -1,0 +1,59 @@
+
+## Exactly `n-1` Edges
+This is an important observation in graph theory. When a problem specifies that you have:
+
+-   n nodes (labeled from 0 to n-1)
+-   exactly n-1 edges
+
+This strongly suggests you're working with a **tree** structure.
+
+A tree is a connected, undirected graph with no cycles. The key properties of a tree are:
+
+1.  It is connected (there's a path between any two nodes)
+2.  It has exactly n-1 edges when there are n nodes
+3.  It has no cycles
+
+This is why you're seeing this statement frequently in graph problems. When you have exactly n-1 edges for n nodes, the problem is typically hinting that you're dealing with a tree or asking you to construct/analyze a tree.
+
+If we had:
+
+-   Fewer than n-1 edges: The graph would be disconnected
+-   More than n-1 edges: The graph would contain at least one cycle
+
+Great follow-up questions! Let me address each one:
+
+1.  **Binary trees vs. general trees**
+    
+    You're correct about the distinction. Let me clarify:
+    
+    -   A **general tree** as I described is typically represented as an undirected graph with no cycles.
+        
+    -   A **binary tree** in implementation is often represented as a directed graph where edges point from parents to children (via node.left and node.right references). However, the underlying mathematical structure is still considered undirected when discussing graph theory properties. The directedness comes from our implementation, not the abstract structure.
+        
+    -   In a binary tree implementation, we can only traverse from parent to children using the explicit pointers, unless we maintain parent pointers as well.
+        
+2.  **Fewer than n-1 edges**
+    
+    Yes, exactly. In a graph with n nodes:
+    
+    -   If you have fewer than n-1 edges and no cycles, the graph must have at least 2 separate connected components.
+        
+    -   This is because each connected component with k nodes requires at least k-1 edges to be connected. If you have multiple components, you can't connect all n nodes with fewer than n-1 edges.
+        
+3.  **Connectivity in directed vs. undirected graphs**
+    
+    You're absolutely right:
+    
+    -   In an **undirected connected component**, there is guaranteed to be a path between any two nodes. That's the definition of connectivity for undirected graphs.
+        
+    -   In a **directed connected component**, we have two different notions:
+        
+        -   **Weakly connected**: There's a path between any two nodes if we ignore the direction of edges.
+            
+        -   **Strongly connected**: There's a directed path from any node to any other node, respecting edge directions.
+            
+    
+    So in a directed graph, being in the same connected component (weakly connected) doesn't guarantee you can reach any node from any other node. For that guarantee, you need a strongly connected component.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNDE4NzcwMjY1XX0=
+-->
