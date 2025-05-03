@@ -67,6 +67,36 @@ This means:
 So yes, there is guaranteed to be a path between any two nodes in this tree. This is a fundamental property of trees - they are connected graphs with no cycles.
 
 This property is often leveraged in tree problems where you might need to find paths between nodes, perform traversals, or calculate distances within the tree structure.
+
+-   A connected graph with n nodes requires at least n-1 edges to connect all nodes
+-   Having exactly n-1 edges in a connected graph means there's no room for any cycles
+
+
+
+You're asking a great, fundamental question. Let me clarify the definition of a tree more precisely.
+
+In graph theory, a tree is defined by either of these equivalent definitions:
+
+1.  A tree is a connected, acyclic (no cycles) undirected graph.
+    
+2.  A tree is a minimally connected undirected graph, meaning:
+    
+    -   It is connected (there's a path between any two nodes)
+    -   If you remove any edge, it becomes disconnected
+
+The absence of cycles is part of the core definition of what a tree is. This isn't something that follows from other properties - it's baked into the definition itself.
+
+When someone says "undirected tree," they're explicitly referring to a graph structure that, by definition, has no cycles. This is similar to how when someone says "square," they're referring to a shape that, by definition, has four equal sides and four right angles.
+
+So when a problem statement mentions an "undirected tree," it's directly telling you:
+
+-   The graph is connected
+-   The graph has no cycles
+
+The statement about having n nodes and n-1 edges is actually a property that follows from these defining characteristics. In fact, we can prove that any connected, acyclic graph with n nodes must have exactly n-1 edges.
+
+Does that help clarify why "undirected tree" immediately tells us there are no cycles?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4MjI3MzQxMCw0MTg3NzAyNjVdfQ==
+eyJoaXN0b3J5IjpbLTExODgyNzgxNDYsMTI4MjI3MzQxMCw0MT
+g3NzAyNjVdfQ==
 -->
