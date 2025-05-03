@@ -54,6 +54,19 @@ Great follow-up questions! Let me address each one:
             
     
     So in a directed graph, being in the same connected component (weakly connected) doesn't guarantee you can reach any node from any other node. For that guarantee, you need a strongly connected component.
+
+## There is an undirected tree with `n` nodes labeled from `0` to `n - 1` and `n - 1` edges.
+
+This means:
+
+1.  You have a single undirected connected component (the tree)
+2.  There is exactly one unique path between any two nodes in this tree
+3.  There are no cycles (which is what makes it a tree rather than just any connected graph)
+4.  Every node is reachable from every other node
+
+So yes, there is guaranteed to be a path between any two nodes in this tree. This is a fundamental property of trees - they are connected graphs with no cycles.
+
+This property is often leveraged in tree problems where you might need to find paths between nodes, perform traversals, or calculate distances within the tree structure.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDE4NzcwMjY1XX0=
+eyJoaXN0b3J5IjpbMTI4MjI3MzQxMCw0MTg3NzAyNjVdfQ==
 -->
