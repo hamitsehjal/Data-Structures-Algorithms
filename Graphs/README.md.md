@@ -1,4 +1,5 @@
 
+# DFS Notes
 ## Exactly `n-1` Edges
 This is an important observation in graph theory. When a problem specifies that you have:
 
@@ -96,7 +97,11 @@ So when a problem statement mentions an "undirected tree," it's directly telling
 The statement about having n nodes and n-1 edges is actually a property that follows from these defining characteristics. In fact, we can prove that any connected, acyclic graph with n nodes must have exactly n-1 edges.
 
 Does that help clarify why "undirected tree" immediately tells us there are no cycles?
+
+
+# BFS Notes
+- BFS guarantees the shortest path only **if you're exploring from all sources at once** — that's why a **multi-source BFS** is the correct and optimal approach here. Example - [542. 01 Matrix](https://leetcode.com/problems/01-matrix/description/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODgyNzgxNDYsMTI4MjI3MzQxMCw0MT
-g3NzAyNjVdfQ==
+eyJoaXN0b3J5IjpbOTQ0NzIxMzczLC0xMTg4Mjc4MTQ2LDEyOD
+IyNzM0MTAsNDE4NzcwMjY1XX0=
 -->
