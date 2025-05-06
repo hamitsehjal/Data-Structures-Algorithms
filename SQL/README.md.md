@@ -38,6 +38,16 @@ user_id INT UNIQUE  -- allows a profile to exist without linking to a user (0 or
 ```
 
 ----------
+
+
+
+## JOINS
+
+1. Inner Join (Join)
+2. Left Join
+3. Right Join
+4. Full Outer Join
+5. Cross Join
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTEzOTAwMjA3XX0=
+eyJoaXN0b3J5IjpbNjIzNTA1MTExLDUxMzkwMDIwN119
 -->
