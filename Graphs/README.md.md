@@ -101,7 +101,8 @@ Does that help clarify why "undirected tree" immediately tells us there are no c
 
 # BFS Notes
 - BFS guarantees the shortest path only **if you're exploring from all sources at once** — that's why a **multi-source BFS** is the correct and optimal approach here. Example - [542. 01 Matrix](https://leetcode.com/problems/01-matrix/description/)
+- BFS literally helps you travel level by level in a tree and a graph. A very good example is the following - "https://leetcode.com/problems/deepest-leaves-sum/description/"
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ0NzIxMzczLC0xMTg4Mjc4MTQ2LDEyOD
-IyNzM0MTAsNDE4NzcwMjY1XX0=
+eyJoaXN0b3J5IjpbMTY4ODU3MDg0Miw5NDQ3MjEzNzMsLTExOD
+gyNzgxNDYsMTI4MjI3MzQxMCw0MTg3NzAyNjVdfQ==
 -->
