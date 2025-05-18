@@ -114,6 +114,107 @@ def postorder_iterative(root):
 4. For balanced trees, the space complexity is O(log n), but for skewed trees, it can be O(n).
 
 
+## ✅ Time Complexity: Always **O(n)**
+
+-   Regardless of **DFS or BFS**, or whether the tree is:
+    
+    -   **Balanced**
+        
+    -   **Complete**
+        
+    -   **Skewed**
+        
+-   The reason: Every node is visited **once**, and only once, so:
+    
+    Time Complexity=O(n)\text{Time Complexity} = O(n)
+
+----------
+
+## ✅ Space Complexity: **Varies**
+
+### 🔹 **DFS (Depth-First Search)**
+
+-   Uses a **stack** (explicit or recursive call stack).
+    
+-   Stack depth = **height of the tree**.
+    
+
+Tree Type
+
+Stack Depth
+
+Space Complexity
+
+Balanced Tree
+
+`O(log n)`
+
+`O(log n)`
+
+Skewed Tree
+
+`O(n)`
+
+`O(n)`
+
+> Because in a skewed tree (like a linked list), recursion/stack grows linearly down one branch.
+
+----------
+
+### 🔹 **BFS (Breadth-First Search)**
+
+-   Uses a **queue** to process nodes level by level.
+    
+
+Tree Type
+
+Max Queue Size
+
+Space Complexity
+
+Balanced Tree
+
+Up to ~`n/2` nodes at the last level
+
+`O(n)`
+
+Skewed Tree
+
+At most 1 node per level (n levels total)
+
+`O(1)` to `O(n)`
+
+> Even in a skewed tree, BFS might still use `O(n)` space in the worst case — depending on how it queues up nodes. But practically, it tends to be much lighter than in a full level.
+
+----------
+
+## 🔁 Summary
+
+Algorithm
+
+Time Complexity
+
+Space (Balanced)
+
+Space (Skewed)
+
+DFS
+
+`O(n)`
+
+`O(log n)`
+
+`O(n)`
+
+BFS
+
+`O(n)`
+
+`O(n)`
+
+`O(n)` (but closer to `O(1)` in practice)
+
+
 
 
 # Trees (Solving with Recursion)
@@ -639,5 +740,6 @@ For h=3h = 3h=3:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjYzNDIxODU0LC03NzEwNzQ4Ml19
+eyJoaXN0b3J5IjpbMTQ3MTU0OTI3NSwyNjM0MjE4NTQsLTc3MT
+A3NDgyXX0=
 -->
