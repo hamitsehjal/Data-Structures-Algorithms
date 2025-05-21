@@ -86,6 +86,84 @@ When implementing, it helps to think of it as:
 -   "Who is waiting for me to finish?" rather than "Who am I waiting for?"
 
 Would you like me to explain any specific part of this approach in more detail?
+
+That's an excellent question about the cycle detection logic! Let's break down why this condition works for identifying cycles in a topological sort.
+
+## Why `buildOrder.length !== projects.length` Indicates a Cycle
+
+When we perform a topological sort, we start with nodes that have no prerequisites (in-degree of 0) and gradually process nodes as all their prerequisites are completed. If there's a cycle in the graph, this creates a paradoxical situation where certain nodes can never be processed.
+
+### How the Algorithm Works
+
+1.  We start by adding all nodes with in-degree 0 to our queue
+2.  We process each node in the queue:
+    -   Add it to our build order
+    -   Decrement in-degree for all its dependents
+    -   If any dependent's in-degree becomes 0, add it to the queue
+3.  We continue until the queue is empty
+
+### Why Cycles Prevent Complete Processing
+
+Let's consider a simple cycle: A depends on B, B depends on C, and C depends on A.
+
+-   None of these nodes will ever have an in-degree of 0 during our algorithm
+-   A can't start until C is done
+-   C can't start until B is done
+-   B can't start until A is done
+
+This creates a catch-22 situation where none of the nodes in the cycle can ever be added to our queue, meaning they'll never be added to our build order.
+
+### The Proof
+
+1.  If there is no cycle:
+    
+    -   Every node in a directed acyclic graph (DAG) can be topologically sorted
+    -   Our algorithm will eventually process all nodes
+    -   Therefore, `buildOrder.length` will equal `projects.length`
+2.  If there is a cycle:
+    
+    -   At least one node in the cycle will never have its in-degree reach 0
+    -   This node (and potentially others in the cycle) will never be added to the queue
+    -   Therefore, `buildOrder.length` will be less than `projects.length`
+
+This is why checking if we've processed all nodes (`buildOrder.length === projects.length`) is a simple and effective way to detect cycles.
+
+## Visual Example
+
+Let's see this with a small example containing a cycle:
+
+```
+Projects: A, B, C
+Dependencies: (A, B), (B, C), (C, A)
+
+```
+
+1.  Initialize:
+    
+    -   Graph: A→[B], B→[C], C→[A]
+    -   In-degrees: A:1, B:1, C:1
+    -   Queue: [] (empty, since no node has in-degree 0)
+    -   BuildOrder: [] (empty)
+2.  Since our queue starts empty (no node with in-degree 0), we can't process any nodes
+    
+3.  Our algorithm ends with buildOrder.length = 0, which is less than projects.length = 3
+    
+4.  We conclude there's a cycle
+    
+
+In contrast, if we had a valid DAG, there would always be at least one node with in-degree 0 at the start, and we'd eventually process all nodes.
+
+## Alternative Cycle Detection Approaches
+
+While this method works, there are other ways to detect cycles:
+
+1.  **DFS with coloring**: Mark nodes as "visiting" and "visited" to detect back edges
+2.  **Track visited counts**: If we've visited fewer nodes than total after the algorithm, there's a cycle
+3.  **Explicit cycle finding**: When the queue becomes empty but unprocessed nodes remain
+
+The approach in your code is elegant because it piggybacks on information we already have from the topological sort without requiring additional tracking.
+
+Does this explanation help clarify why this condition guarantees cycle detection? Or would you like me to provide a more detailed example with our original problem?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDk0MDY4NDVdfQ==
+eyJoaXN0b3J5IjpbNzE4NDQ4NDc3XX0=
 -->
