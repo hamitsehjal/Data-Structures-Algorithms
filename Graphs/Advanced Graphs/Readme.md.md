@@ -164,6 +164,92 @@ While this method works, there are other ways to detect cycles:
 The approach in your code is elegant because it piggybacks on information we already have from the topological sort without requiring additional tracking.
 
 Does this explanation help clarify why this condition guarantees cycle detection? Or would you like me to provide a more detailed example with our original problem?
+
+
+# Minimum Spanning Trees
+## Kruskal's Algorithm
+```
+"""
+Kruskal's Algorithm - undirected connected weighted graph
+1. Union-Find Data structure
+2. Get all the edges as pair of (w,u,v)
+3. Sort all the edges by weight. declare variable mst and weight to track the mst and its weight
+4. iterate over sorted edges:
+5. Check if union(u,v) returns true or false:
+  if false, which mean we came across a cycle so we skip it
+  else:
+    update the mst array
+    update the weight array
+"""
+
+class UnionFind:
+  def __init__(self,n):
+    self.parent = [i for i in range(n)]
+    self.rank = [0]*n
+  
+  def find(self,u):
+    """
+    Find parent of the node u 
+    """
+    if self.parent[u] == u:
+      return u 
+    
+    self.parent[u] = self.find(self.parent[u]) # path compression
+    return self.parent[u]
+  
+  def union(self,u,v):
+    """
+    Merge sets containing u and v into one set 
+    """
+    pu = self.find(u)
+    pv = self.find(v)
+    
+    if pu == pv:
+      # cycle
+      return False
+    
+    if self.rank[pu] > self.rank[pv]:
+      self.parent[pv] = pu
+    elif self.rank[pu] < self.rank[pv]:
+      self.parent[pu] = pv
+    else:
+      self.parent[pv] = pu
+      self.rank[pu] += 1
+      
+    return True
+    
+
+def findMST(num_vertices,edges):
+  edges = sorted(edges,key=lambda x:x[2])
+  mst = []
+  total_weight = 0
+  uf = UnionFind(num_vertices)
+  
+  for u,v,w in edges:
+    
+    if uf.union(u,v):
+      mst.append([u,v,w])
+      total_weight += w
+    else:
+      continue
+  
+  return mst
+    
+
+edges = [
+    [0, 1, 4],  # Edge between vertex 0 and 1 with weight 4
+    [0, 2, 8],  # Edge between vertex 0 and 2 with weight 8
+    [1, 2, 2],  # Edge between vertex 1 and 2 with weight 2
+    [1, 3, 5],  # Edge between vertex 1 and 3 with weight 5
+    [2, 3, 3],  # Edge between vertex 2 and 3 with weight 3
+    [2, 4, 6],  # Edge between vertex 2 and 4 with weight 6
+    [3, 4, 9]   # Edge between vertex 3 and 4 with weight 9
+]
+num_vertices = 5
+
+print(findMST(num_vertices,edges))
+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE4NDQ4NDc3XX0=
+eyJoaXN0b3J5IjpbMjA2OTM5MDUxLDcxODQ0ODQ3N119
 -->
