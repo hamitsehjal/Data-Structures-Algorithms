@@ -250,6 +250,21 @@ num_vertices = 5
 print(findMST(num_vertices,edges))
 
 ```
+
+
+## Prim's Algorithm
+
+
+### How to Recognize MST Problems in General
+
+To identify MST problems in the future, look for these patterns:
+
+-   **Connectivity Requirement**: The problem asks to connect all nodes/points in some way (e.g., roads, cables, or paths).
+-   **Minimization of Cost**: The goal is to minimize the total cost (sum of edge weights) while ensuring all nodes are connected.
+-   **Graph Representation**: The problem can be modeled as a graph, even if it’s disguised as a geometric or network problem (e.g., points on a plane, cities, or servers).
+-   **No Cycles Implied**: The solution typically avoids redundant connections, suggesting a tree structure (n-1 edges for n vertices).
+-   **Edge Weights**: Costs are associated with connections (e.g., distances, times, or other metrics), and the problem doesn’t restrict which nodes can connect (implying a dense or complete graph).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2OTM5MDUxLDcxODQ0ODQ3N119
+eyJoaXN0b3J5IjpbMjA2MTM2NzE0OCwyMDY5MzkwNTEsNzE4ND
+Q4NDc3XX0=
 -->
