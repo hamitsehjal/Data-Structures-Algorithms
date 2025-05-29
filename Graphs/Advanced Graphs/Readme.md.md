@@ -1,3 +1,9 @@
+# Advanced Graphs
+
+## Topological Sort
+
+### what exactly is it?
+- Topological sort arranges the nodes of a direct graph such that if there's an edge from A to B, then A would come before B in the final ordering.
 Topological sorting can be tricky when setting up the problem, especially when dealing with dependencies and prerequisites. Let me help you understand how to structure this problem effectively.
 
 In this build order problem, there are two ways to represent the graph:
@@ -265,6 +271,6 @@ To identify MST problems in the future, look for these patterns:
 -   **No Cycles Implied**: The solution typically avoids redundant connections, suggesting a tree structure (n-1 edges for n vertices).
 -   **Edge Weights**: Costs are associated with connections (e.g., distances, times, or other metrics), and the problem doesn’t restrict which nodes can connect (implying a dense or complete graph).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MTM2NzE0OCwyMDY5MzkwNTEsNzE4ND
-Q4NDc3XX0=
+eyJoaXN0b3J5IjpbMjkwMTUxMzMsMjA2MTM2NzE0OCwyMDY5Mz
+kwNTEsNzE4NDQ4NDc3XX0=
 -->
