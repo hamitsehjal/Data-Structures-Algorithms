@@ -8,7 +8,27 @@ Or even more simply: **It's like creating a to-do list where you do all the prer
 For example, if you're getting dressed and you have dependencies like "put on socks before shoes" and "put on underwear before pants," a topological sort would give you a valid order like: underwear → socks → pants → shoes.
 
 1. The key insight is that it only works on directed acyclic graphs (DAGs) - graphs with no cycles. If there were cycles (like A depends on B, B depends on C, and C depends on A), then there'd be no valid ordering possible.
-2. Always model the relationship as **dependency → dependant**
+
+### Modeling edges in topological Sort
+The standard convention is to direct edges from **dependency → dependant.** This way, when you do a topological sort, dependencies naturally appear before dependants in the ordering.
+
+So if task B depends on task A, you draw the edge as: **A → B**
+
+This makes intuitive sense because:
+
+-   The edge represents "A must come before B"
+-   In the topological ordering, A will appear before B
+-   The direction of the edge matches the direction of time/precedence
+
+**Example:** If you're modeling course prerequisites:
+
+-   "Calculus I must be taken before Calculus II"
+-   Edge: Calculus I → Calculus II
+-   Topological sort result: [...Calculus I...Calculus II...]
+
+Some people initially think to model it backwards (dependant → dependency) because they think "B depends on A, so draw B → A." But this would break topological sort since you'd get B before A in the ordering, which is wrong.
+
+So yes, always model it as **dependency → dependant**, and topological sort will give you the correct ordering where all dependencies come before the things that need them.
 
 In this build order problem, there are two ways to represent the graph:
 
@@ -99,11 +119,11 @@ Would you like me to explain any specific part of this approach in more detail?
 
 That's an excellent question about the cycle detection logic! Let's break down why this condition works for identifying cycles in a topological sort.
 
-## Why `buildOrder.length !== projects.length` Indicates a Cycle
+#### Why `buildOrder.length !== projects.length` Indicates a Cycle
 
 When we perform a topological sort, we start with nodes that have no prerequisites (in-degree of 0) and gradually process nodes as all their prerequisites are completed. If there's a cycle in the graph, this creates a paradoxical situation where certain nodes can never be processed.
 
-### How the Algorithm Works
+#### How the Algorithm Works
 
 1.  We start by adding all nodes with in-degree 0 to our queue
 2.  We process each node in the queue:
@@ -112,7 +132,7 @@ When we perform a topological sort, we start with nodes that have no prerequisit
     -   If any dependent's in-degree becomes 0, add it to the queue
 3.  We continue until the queue is empty
 
-### Why Cycles Prevent Complete Processing
+#### Why Cycles Prevent Complete Processing
 
 Let's consider a simple cycle: A depends on B, B depends on C, and C depends on A.
 
@@ -163,17 +183,7 @@ Dependencies: (A, B), (B, C), (C, A)
 
 In contrast, if we had a valid DAG, there would always be at least one node with in-degree 0 at the start, and we'd eventually process all nodes.
 
-## Alternative Cycle Detection Approaches
 
-While this method works, there are other ways to detect cycles:
-
-1.  **DFS with coloring**: Mark nodes as "visiting" and "visited" to detect back edges
-2.  **Track visited counts**: If we've visited fewer nodes than total after the algorithm, there's a cycle
-3.  **Explicit cycle finding**: When the queue becomes empty but unprocessed nodes remain
-
-The approach in your code is elegant because it piggybacks on information we already have from the topological sort without requiring additional tracking.
-
-Does this explanation help clarify why this condition guarantees cycle detection? Or would you like me to provide a more detailed example with our original problem?
 
 
 # Minimum Spanning Trees
@@ -275,6 +285,6 @@ To identify MST problems in the future, look for these patterns:
 -   **No Cycles Implied**: The solution typically avoids redundant connections, suggesting a tree structure (n-1 edges for n vertices).
 -   **Edge Weights**: Costs are associated with connections (e.g., distances, times, or other metrics), and the problem doesn’t restrict which nodes can connect (implying a dense or complete graph).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNTEzNzIyMSwyMDYxMzY3MTQ4LDIwNj
+eyJoaXN0b3J5IjpbLTE0NzA0NDk0NCwyMDYxMzY3MTQ4LDIwNj
 kzOTA1MSw3MTg0NDg0NzddfQ==
 -->
