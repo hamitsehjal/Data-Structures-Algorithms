@@ -2,9 +2,13 @@
 
 ## Topological Sort
 
-### what exactly is it?
-- Topological sort arranges the nodes of a direct graph such that if there's an edge from A to B, then A would come before B in the final ordering.
-Topological sorting can be tricky when setting up the problem, especially when dealing with dependencies and prerequisites. Let me help you understand how to structure this problem effectively.
+**Topological sort arranges the nodes in a directed graph so that if there's an edge from A to B, then A appears before B in the final ordering.**
+Or even more simply: **It's like creating a to-do list where you do all the prerequisites before the things that depend on them.**
+
+For example, if you're getting dressed and you have dependencies like "put on socks before shoes" and "put on underwear before pants," a topological sort would give you a valid order like: underwear → socks → pants → shoes.
+
+1. The key insight is that it only works on directed acyclic graphs (DAGs) - graphs with no cycles. If there were cycles (like A depends on B, B depends on C, and C depends on A), then there'd be no valid ordering possible.
+2. Always model the relationship as **dependency → dependant**
 
 In this build order problem, there are two ways to represent the graph:
 
@@ -271,6 +275,6 @@ To identify MST problems in the future, look for these patterns:
 -   **No Cycles Implied**: The solution typically avoids redundant connections, suggesting a tree structure (n-1 edges for n vertices).
 -   **Edge Weights**: Costs are associated with connections (e.g., distances, times, or other metrics), and the problem doesn’t restrict which nodes can connect (implying a dense or complete graph).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjkwMTUxMzMsMjA2MTM2NzE0OCwyMDY5Mz
-kwNTEsNzE4NDQ4NDc3XX0=
+eyJoaXN0b3J5IjpbMjAyNTEzNzIyMSwyMDYxMzY3MTQ4LDIwNj
+kzOTA1MSw3MTg0NDg0NzddfQ==
 -->
