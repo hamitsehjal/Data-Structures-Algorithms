@@ -30,6 +30,9 @@ Some people initially think to model it backwards (dependant → dependency) bec
 
 So yes, always model it as **dependency → dependant**, and topological sort will give you the correct ordering where all dependencies come before the things that need them.
 
+### Structing a Topological Sort Problem!!
+ *Question: You are given a list of projects and a list of dependencies (which is a list of pairs of_  _projects, where the second project is dependent on the first project). All of a project's dependencies_  _must be built before the project is. Find a build order that will allow the projects to be built. If there_  _is no valid build order, return an error._  _EXAMPLE_  _Input:_  _projects: a, b, c, d, e, f_  _dependencies: (a, d), (f, b), (b, d), (f, a), (d, c)_  _Output: f, e, a, b, d, c_*
+
 In this build order problem, there are two ways to represent the graph:
 
 1.  **Dependencies representation**: Node → List of nodes it depends on
@@ -285,6 +288,6 @@ To identify MST problems in the future, look for these patterns:
 -   **No Cycles Implied**: The solution typically avoids redundant connections, suggesting a tree structure (n-1 edges for n vertices).
 -   **Edge Weights**: Costs are associated with connections (e.g., distances, times, or other metrics), and the problem doesn’t restrict which nodes can connect (implying a dense or complete graph).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzA0NDk0NCwyMDYxMzY3MTQ4LDIwNj
+eyJoaXN0b3J5IjpbLTUzODYxNjEzNSwyMDYxMzY3MTQ4LDIwNj
 kzOTA1MSw3MTg0NDg0NzddfQ==
 -->
