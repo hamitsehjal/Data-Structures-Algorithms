@@ -93,6 +93,57 @@ dependencies = [['a','d'],['f','b'],['b','d'],['f','a'],['d','c']]
 print(topo_sort(dependencies,projects))
 ```
 
+Great question! Here are the key patterns that scream "topological sort":
+
+## Core Signal: **Ordering with Dependencies**
+
+If you see any variation of "arrange things in order where X must come before Y," that's your main clue.
+
+### Common Question Patterns:
+
+**1. Course/Task Scheduling**
+
+-   "Given course prerequisites, find a valid order to take courses"
+-   "Order tasks where some tasks must be completed before others"
+-   "Build system: compile files in correct order based on dependencies"
+
+**2. "Possible/Impossible" Questions**
+
+-   "Is it possible to complete all courses given these prerequisites?"
+-   "Can all tasks be finished?"
+-   (These often combine cycle detection with topological sort)
+
+**3. Job/Process Sequencing**
+
+-   "Factory: some processes must finish before others can start"
+-   "Project management: order activities based on dependencies"
+
+**4. Compilation/Build Problems**
+
+-   "Given module dependencies, what's the build order?"
+-   "Import statements create dependencies - find compilation order"
+
+**5. Recipe/Assembly Instructions**
+
+-   "Steps in a recipe where some ingredients must be prepared first"
+-   "Assembly line where some parts must be ready before others"
+
+### Red Flag Keywords to Watch For:
+
+-   "prerequisites"
+-   "dependencies"
+-   "must come before"
+-   "required order"
+-   "valid sequence"
+-   "finish before starting"
+-   "cycle" (often need to detect cycles first)
+
+### Quick Test:
+
+Ask yourself: _"Can I draw this as a directed graph where edges represent 'must happen before' relationships?"_ If yes, topological sort is likely your answer.
+
+The beauty is that once you recognize the pattern, the solution structure is almost always the same: build the graph, then topologically sort it.
+
 
 
 # Minimum Spanning Trees
@@ -194,6 +245,7 @@ To identify MST problems in the future, look for these patterns:
 -   **No Cycles Implied**: The solution typically avoids redundant connections, suggesting a tree structure (n-1 edges for n vertices).
 -   **Edge Weights**: Costs are associated with connections (e.g., distances, times, or other metrics), and the problem doesn’t restrict which nodes can connect (implying a dense or complete graph).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1MjMwNTc4MywtNTI4Mzg1MzIyLDIwNj
-EzNjcxNDgsMjA2OTM5MDUxLDcxODQ0ODQ3N119
+eyJoaXN0b3J5IjpbMTQ4NTI3NDkzNCwxOTUyMzA1NzgzLC01Mj
+gzODUzMjIsMjA2MTM2NzE0OCwyMDY5MzkwNTEsNzE4NDQ4NDc3
+XX0=
 -->
