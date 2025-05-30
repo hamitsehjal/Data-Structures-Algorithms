@@ -146,6 +146,24 @@ The beauty is that once you recognize the pattern, the solution structure is alm
 
 
 
+# Disjoint Set (DSU) / Union Find
+
+
+###  ✅ Checklist: Is DSU a Good Fit?
+
+Ask yourself:
+
+1.  Do I need to repeatedly check if two elements are in the same group?
+    
+2.  Am I merging groups of elements?
+    
+3.  Are the operations `merge` + `query connectivity`?
+    
+4.  Is the underlying structure an **undirected graph**?
+    
+
+If **yes** to 2 or more — **strong candidate** for DSU!
+
 # Minimum Spanning Trees
 ## Kruskal's Algorithm
 ```
@@ -245,7 +263,7 @@ To identify MST problems in the future, look for these patterns:
 -   **No Cycles Implied**: The solution typically avoids redundant connections, suggesting a tree structure (n-1 edges for n vertices).
 -   **Edge Weights**: Costs are associated with connections (e.g., distances, times, or other metrics), and the problem doesn’t restrict which nodes can connect (implying a dense or complete graph).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4NTI3NDkzNCwxOTUyMzA1NzgzLC01Mj
-gzODUzMjIsMjA2MTM2NzE0OCwyMDY5MzkwNTEsNzE4NDQ4NDc3
-XX0=
+eyJoaXN0b3J5IjpbLTE1NzU1MDUwNTUsMTQ4NTI3NDkzNCwxOT
+UyMzA1NzgzLC01MjgzODUzMjIsMjA2MTM2NzE0OCwyMDY5Mzkw
+NTEsNzE4NDQ4NDc3XX0=
 -->
