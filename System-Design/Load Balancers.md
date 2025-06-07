@@ -37,11 +37,11 @@
 
 ## How would you answer these questions:
 
-1.  You're architecting a system that needs to handle both HTTP API requests and real-time gaming traffic. How would you design your load balancing strategy? Which types would you use where?
-    
-2.  You're building a real-time collaborative document editor (like Google Docs). Users need to see each other's changes instantly. Would you choose stateful or stateless load balancing? What are the trade-offs?
+1.    Introducing a load balancer into the request-response path adds an additional network hop, which can result in increased latency. How can you reduce this latency?
+2. You're architecting a system that needs to handle both HTTP API requests and real-time gaming traffic. How would you design your load balancing strategy? Which types would you use where?
+3.  You're building a real-time collaborative document editor (like Google Docs). Users need to see each other's changes instantly. Would you choose stateful or stateless load balancing? What are the trade-offs?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNjc3ODA3NSwtODc2ODU1MDcwLDExOD
-AyODgzMDRdfQ==
+eyJoaXN0b3J5IjpbLTMxMTQzNzM3NCwtNTM2Nzc4MDc1LC04Nz
+Y4NTUwNzAsMTE4MDI4ODMwNF19
 -->
