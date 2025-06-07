@@ -33,6 +33,15 @@
 | **Sticky Sessions**       | Same client ↔ same server     | ✅ Maintains session state                                           | ❌ Poor fault tolerance, uneven load                                 | No session externalization                    |
 | **Geo-based (GeoDNS)**    | Route by client location       | ✅ Reduces latency, CDN-friendly                                     | ❌ Ignores load, not always accurate                                 | Global apps, CDNs, regional failover          |
 
+
+
+## How would you answer these questions:
+
+1.  You're architecting a system that needs to handle both HTTP API requests and real-time gaming traffic. How would you design your load balancing strategy? Which types would you use where?
+    
+2.  You're building a real-time collaborative document editor (like Google Docs). Users need to see each other's changes instantly. Would you choose stateful or stateless load balancing? What are the trade-offs?
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3Njg1NTA3MCwxMTgwMjg4MzA0XX0=
+eyJoaXN0b3J5IjpbLTUzNjc3ODA3NSwtODc2ODU1MDcwLDExOD
+AyODgzMDRdfQ==
 -->
