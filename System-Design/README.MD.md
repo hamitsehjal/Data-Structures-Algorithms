@@ -1,8 +1,6 @@
 ## Data Storage Units and Scales
 
 ```
-This spreadsheet defines computer storage units and their sizes. It contains the following fields:
-
 | Unit        | Abbreviation | Approximate Size (Bytes)      | Exact Size (Bytes) | Example                                              |
 | :---------- | :----------- | :---------------------------- | :----------------- | :--------------------------------------------------- |
 | Bit         | b            | 1 or 0 (binary digit)         | 1 bit              | Smallest unit of data                                |
@@ -60,6 +58,6 @@ This spreadsheet defines computer storage units and their sizes. It contains the
 | Mobile 5G                | 100 Mbps - 10 Gbps          |
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExMzA1NjY2MiwxODI4MTgxMTIsLTEwOT
+eyJoaXN0b3J5IjpbLTk2MzQ2MDY4NSwxODI4MTgxMTIsLTEwOT
 Y5NTk0NV19
 -->
