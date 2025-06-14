@@ -49,13 +49,16 @@ If **instant failover** is critical (e.g., live APIs, high-availability systems)
 - **Use GSLB + low TTL** for basic resilience
 -   **Combine with smart clients** (that can retry or use backup URLs/IPs)
 - Or use **Anycast-based routing** (Cloudflare, AWS Global Accelerator) for fastest response
-    
-5.  Keep **server-side health checks** in the GSLB to prevent serving dead IPs to new users
-You touched on health checks - how would you design a health check system that can distinguish between a temporary overload vs a genuine server failure? What's your backoff strategy?
+- Keep **server-side health checks** in the GSLB to prevent serving dead IPs to new users
 
-4.  If you're using weighted round-robin and one of your high-weight servers starts responding slowly (but not failing health checks), how would your load balancer adapt?
+2. how would you design a health check system that can distinguish between a temporary overload vs a genuine server failure? What's your backoff strategy?
+
+- You'd typically use multiple signals - response time percentiles, error rates, and custom health endpoints. Implement exponential backoff for failed nodes and gradual traffic increase when they recover.
+
+3.  If you're using weighted round-robin and one of your high-weight servers starts responding slowly (but not failing health checks), how would your load balancer adapt?
+- Modern LBs use real-time metrics like response time moving averages to dynamically adjust weights, not just binary up/down states.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0NDE4MDk0OCwtOTA0OTg3MjgwLC0zMT
-E0MzczNzQsLTUzNjc3ODA3NSwtODc2ODU1MDcwLDExODAyODgz
-MDRdfQ==
+eyJoaXN0b3J5IjpbLTE1OTA1NTYsLTkwNDk4NzI4MCwtMzExND
+M3Mzc0LC01MzY3NzgwNzUsLTg3Njg1NTA3MCwxMTgwMjg4MzA0
+XX0=
 -->
