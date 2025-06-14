@@ -42,7 +42,20 @@
 3.  You're building a real-time collaborative document editor (like Google Docs). Users need to see each other's changes instantly. Would you choose stateful or stateless load balancing? What are the trade-offs?
 
 
+## Questions:
+
+1. How do you handle the scenario where your DNS directs traffic to a region, but that entire region goes down? What's your fallback mechanism?
+If **instant failover** is critical (e.g., live APIs, high-availability systems):
+- **Use GSLB + low TTL** for basic resilience
+-   **Combine with smart clients** (that can retry or use backup URLs/IPs)
+- Or use **Anycast-based routing** (Cloudflare, AWS Global Accelerator) for fastest response
+    
+5.  Keep **server-side health checks** in the GSLB to prevent serving dead IPs to new users
+You touched on health checks - how would you design a health check system that can distinguish between a temporary overload vs a genuine server failure? What's your backoff strategy?
+
+4.  If you're using weighted round-robin and one of your high-weight servers starts responding slowly (but not failing health checks), how would your load balancer adapt?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwNDk4NzI4MCwtMzExNDM3Mzc0LC01Mz
-Y3NzgwNzUsLTg3Njg1NTA3MCwxMTgwMjg4MzA0XX0=
+eyJoaXN0b3J5IjpbMTU0NDE4MDk0OCwtOTA0OTg3MjgwLC0zMT
+E0MzczNzQsLTUzNjc3ODA3NSwtODc2ODU1MDcwLDExODAyODgz
+MDRdfQ==
 -->
