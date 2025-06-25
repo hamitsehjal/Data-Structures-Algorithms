@@ -27,7 +27,10 @@
 2. For Parser:
 	- Started with bracket matching algorithm (uses stack) - won't scale beyond matching brackets
 	- what do we need to validate?
-		- After this `
+		- After this `{` bracket, we need to have a **String** key
+		- After String Key, we need to have a **Colon**
+		- After Colon, we need to have a value of one of the following types - (Number, String, boolean, Array, Object, Null)
+		- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU2NTE2MTQ2LC0yMDcwMTk1OTgzXX0=
+eyJoaXN0b3J5IjpbMTE1ODYyNjQ1LC0yMDcwMTk1OTgzXX0=
 -->
