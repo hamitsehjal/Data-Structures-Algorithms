@@ -32,6 +32,12 @@
 		- After Colon, we need to have a value of one of the following types - (Number, String, boolean, Array, Object, Null)
 		- Array elements are seperated by commas
 		- Object key-value pairs are seperated by commas
+
+Json Grammer Rules:
+- a `LEFT_BRACE` needs to be either followed by a `RIGHT_BRACE` or a String Key
+- After a string key, we need to have a Colon
+- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjQ3MjAxMDE1LC0yMDcwMTk1OTgzXX0=
+eyJoaXN0b3J5IjpbLTE1NzUyMTE1OTQsNjQ3MjAxMDE1LC0yMD
+cwMTk1OTgzXX0=
 -->
