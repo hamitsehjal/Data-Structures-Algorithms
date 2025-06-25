@@ -34,10 +34,12 @@
 		- Object key-value pairs are seperated by commas
 
 Json Grammer Rules:
-- a `LEFT_BRACE` needs to be either followed by a `RIGHT_BRACE` or a String Key
+- a `{` needs to be either followed by a `}` or a String Key
 - After a string key, we need to have a Colon
-- 
+- After, we need to have a value from one of the valid types (Object, Array, String, Number(int/float), Boolean(true,false), Null)
+- Array values are seperated by commas
+- Object key-val pairs are seperated by commas
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzUyMTE1OTQsNjQ3MjAxMDE1LC0yMD
+eyJoaXN0b3J5IjpbLTE0Mzg3MTM2MTgsNjQ3MjAxMDE1LC0yMD
 cwMTk1OTgzXX0=
 -->
