@@ -1,7 +1,6 @@
 1. Define the Input and Output at each stage - *lexer* and *parser*
 	- Input Raw String: `{"name": "hamit", "values": [1, 2, 3]}1`
 	- Lexer:
-		- input: `{"name": "hamit", "values": [1, 2, 3]}`
 		- Ouput:
 				- ``` [
 			    Token(type='LEFT_BRACE', value='{'),
@@ -20,10 +19,12 @@
 			    Token(type='RIGHT_BRACKET', value=']'),
 			    Token(type='RIGHT_BRACE', value='}')
 ]```
+	- Parser:
+		- Output: Boolean (valid/invalid) + error message if invalid
+
 2. For Parser:
 	- Started with bracket matching algorithm (uses stack) - won't scale beyond matching brackets
 	- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzkwOTc5NzksLTIwNzAxOTU5ODNdfQ
-==
+eyJoaXN0b3J5IjpbMTA3NDYyMDU1NywtMjA3MDE5NTk4M119
 -->
