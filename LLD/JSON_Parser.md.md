@@ -2,7 +2,8 @@
 	- Input Raw String: `{"name": "hamit", "values": [1, 2, 3]}1`
 	- Lexer:
 		- Ouput:
-				- ``` [
+					```
+					[
 			    Token(type='LEFT_BRACE', value='{'),
 			    Token(type='STRING', value='name'),
 			    Token(type='COLON', value=':'),
@@ -18,7 +19,8 @@
 			    Token(type='NUMBER', value='3'),
 			    Token(type='RIGHT_BRACKET', value=']'),
 			    Token(type='RIGHT_BRACE', value='}')
-]```
+]
+					```
 	- Parser:
 		- Output: Boolean (valid/invalid) + error message if invalid
 
@@ -26,5 +28,5 @@
 	- Started with bracket matching algorithm (uses stack) - won't scale beyond matching brackets
 	- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NDYyMDU1NywtMjA3MDE5NTk4M119
+eyJoaXN0b3J5IjpbNDMzMDM1MjMwLC0yMDcwMTk1OTgzXX0=
 -->
