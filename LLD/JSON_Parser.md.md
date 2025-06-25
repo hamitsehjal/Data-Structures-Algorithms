@@ -30,7 +30,8 @@
 		- After this `{` bracket, we need to have a **String** key
 		- After String Key, we need to have a **Colon**
 		- After Colon, we need to have a value of one of the following types - (Number, String, boolean, Array, Object, Null)
-		- 
+		- Array elements are seperated by commas
+		- Object key-value pairs are seperated by commas
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1ODYyNjQ1LC0yMDcwMTk1OTgzXX0=
+eyJoaXN0b3J5IjpbNjQ3MjAxMDE1LC0yMDcwMTk1OTgzXX0=
 -->
