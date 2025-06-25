@@ -26,7 +26,8 @@
 
 2. For Parser:
 	- Started with bracket matching algorithm (uses stack) - won't scale beyond matching brackets
-	- 
+	- what do we need to validate?
+		- After this `
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMzMDM1MjMwLC0yMDcwMTk1OTgzXX0=
+eyJoaXN0b3J5IjpbNjU2NTE2MTQ2LC0yMDcwMTk1OTgzXX0=
 -->
