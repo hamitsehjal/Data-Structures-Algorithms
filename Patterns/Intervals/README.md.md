@@ -8,7 +8,7 @@
 4. Non-Overlapping Intervals
 	- sort the intervals by end_time (greedy approach)
 	- we always pick the interval that finishes first, so gives us more room for other later
-	- Keep track of end and the skip the one's where `intervals[i][0] 
+	- Keep track of end and the skip the one's where `intervals[i][0] < end `
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDYzMjU2MTQsLTM5NTM5NjM3MV19
+eyJoaXN0b3J5IjpbMjE0NjI0MDc0NywtMzk1Mzk2MzcxXX0=
 -->
